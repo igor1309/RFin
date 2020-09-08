@@ -15,14 +15,13 @@ struct SpaceDetail: View {
     
     var space: Space
     
-    @State var draft: Space
-    @State private var showRename = false
-    @State private var showAlert = false
-    
     init(space: Space) {
         self.space = space
         self._draft = State(initialValue: space)
     }
+    
+    @State var draft: Space
+    @State private var showRename = false
     
     var body: some View {
         NavigationView {
@@ -45,24 +44,9 @@ struct SpaceDetail: View {
             }
             .navigationTitle(draft.name)
             .navigationBarItems(trailing: TrailingButton("Done") {
-                self.saveAndDismiss()
+                saveAndDismiss()
             })
-            .actionSheet(isPresented: $showAlert, content: deleteAction)
         }
-    }
-    
-    private func deleteAction() -> ActionSheet {
-        ActionSheet(
-            title: Text("Delete Space?"),
-            message: Text("This operation couldn't be undone."),
-            buttons: [
-                .cancel(),
-                .destructive(Text("Yes, delete space")) {
-                    self.presentation.wrappedValue.dismiss()
-                    self.delete()
-                }
-            ]
-        )
     }
     
     private func delete() {

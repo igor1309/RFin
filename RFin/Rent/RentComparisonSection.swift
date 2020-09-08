@@ -8,12 +8,13 @@
 
 import SwiftUI
 
-struct RentComparison: View {
+struct RentComparisonSection: View {
     @EnvironmentObject var userData: UserData
     @Binding var space: Space
 
     var body: some View {
-        Section(header: Text("Fixed vs Combo Rent Rate Comparison".uppercased())
+        Section(
+            header: Text("Fixed vs Combo Rent Rate Comparison")
         ) {
             VStack(spacing: 8) {
                 HStack {
@@ -59,7 +60,7 @@ struct RentComparison: View {
 struct RentComparison_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            RentComparison(space: .constant(Space(sample: true)))
+            RentComparisonSection(space: .constant(Space(sample: true)))
         }
         .environmentObject(UserData())
         .environment(\.colorScheme, .dark)

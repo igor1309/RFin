@@ -84,6 +84,7 @@ struct SpaceRow: View {
             }
         }
         .padding(.vertical, 3)
+        .contentShape(Rectangle())
         .onTapGesture {
             self.showModal = true
         }

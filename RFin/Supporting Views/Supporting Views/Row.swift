@@ -8,6 +8,32 @@
 
 import SwiftUI
 
+struct RowWithDetail: View {
+    let systemName: String
+    let title: String
+    let detail: String
+    var isSecondary = false
+    
+    var body: some View {
+        HStack {
+            Group {
+                if systemName.isEmpty {
+                    Text(title)
+                } else {
+                    Label(title, systemImage: systemName)
+                }
+            }
+            .foregroundColor(isSecondary ? .secondary : .primary)
+            .layoutPriority(9)
+            Spacer()
+                .layoutPriority(3)
+            Text(detail)
+                .foregroundColor(Color(UIColor.systemOrange))
+                .layoutPriority(9)
+        }
+    }
+}
+
 struct Row: View {
     var title: String
     var detail: String

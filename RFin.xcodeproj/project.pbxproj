@@ -57,11 +57,11 @@
 		2AD6C9B62507A3760091BA28 /* SpaceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D42507A3730091BA28 /* SpaceSettings.swift */; };
 		2AD6C9B72507A3760091BA28 /* SpaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D52507A3730091BA28 /* SpaceRow.swift */; };
 		2AD6C9B82507A3760091BA28 /* SpaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D62507A3730091BA28 /* SpaceList.swift */; };
-		2AD6C9B92507A3760091BA28 /* Revenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D72507A3730091BA28 /* Revenue.swift */; };
-		2AD6C9BA2507A3760091BA28 /* ComboRentRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D82507A3730091BA28 /* ComboRentRate.swift */; };
+		2AD6C9B92507A3760091BA28 /* RevenueSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D72507A3730091BA28 /* RevenueSection.swift */; };
+		2AD6C9BA2507A3760091BA28 /* ComboRentRateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D82507A3730091BA28 /* ComboRentRateSection.swift */; };
 		2AD6C9BB2507A3760091BA28 /* SpaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8D92507A3730091BA28 /* SpaceDetail.swift */; };
-		2AD6C9BC2507A3760091BA28 /* RentComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DA2507A3730091BA28 /* RentComparison.swift */; };
-		2AD6C9BD2507A3760091BA28 /* FixedRentRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DB2507A3730091BA28 /* FixedRentRate.swift */; };
+		2AD6C9BC2507A3760091BA28 /* RentComparisonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DA2507A3730091BA28 /* RentComparisonSection.swift */; };
+		2AD6C9BD2507A3760091BA28 /* FixedRentRateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DB2507A3730091BA28 /* FixedRentRateSection.swift */; };
 		2AD6C9BE2507A3760091BA28 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DE2507A3730091BA28 /* Connection.swift */; };
 		2AD6C9BF2507A3760091BA28 /* Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8DF2507A3730091BA28 /* Port.swift */; };
 		2AD6C9C02507A3760091BA28 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C8E02507A3730091BA28 /* Network.swift */; };
@@ -273,11 +273,11 @@
 		2AD6C8D42507A3730091BA28 /* SpaceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceSettings.swift; sourceTree = "<group>"; };
 		2AD6C8D52507A3730091BA28 /* SpaceRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceRow.swift; sourceTree = "<group>"; };
 		2AD6C8D62507A3730091BA28 /* SpaceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceList.swift; sourceTree = "<group>"; };
-		2AD6C8D72507A3730091BA28 /* Revenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revenue.swift; sourceTree = "<group>"; };
-		2AD6C8D82507A3730091BA28 /* ComboRentRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboRentRate.swift; sourceTree = "<group>"; };
+		2AD6C8D72507A3730091BA28 /* RevenueSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevenueSection.swift; sourceTree = "<group>"; };
+		2AD6C8D82507A3730091BA28 /* ComboRentRateSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboRentRateSection.swift; sourceTree = "<group>"; };
 		2AD6C8D92507A3730091BA28 /* SpaceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceDetail.swift; sourceTree = "<group>"; };
-		2AD6C8DA2507A3730091BA28 /* RentComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentComparison.swift; sourceTree = "<group>"; };
-		2AD6C8DB2507A3730091BA28 /* FixedRentRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedRentRate.swift; sourceTree = "<group>"; };
+		2AD6C8DA2507A3730091BA28 /* RentComparisonSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentComparisonSection.swift; sourceTree = "<group>"; };
+		2AD6C8DB2507A3730091BA28 /* FixedRentRateSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedRentRateSection.swift; sourceTree = "<group>"; };
 		2AD6C8DE2507A3730091BA28 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		2AD6C8DF2507A3730091BA28 /* Port.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Port.swift; sourceTree = "<group>"; };
 		2AD6C8E02507A3730091BA28 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -591,11 +591,11 @@
 				2AD6C8D42507A3730091BA28 /* SpaceSettings.swift */,
 				2AD6C8D52507A3730091BA28 /* SpaceRow.swift */,
 				2AD6C8D62507A3730091BA28 /* SpaceList.swift */,
-				2AD6C8D72507A3730091BA28 /* Revenue.swift */,
-				2AD6C8D82507A3730091BA28 /* ComboRentRate.swift */,
 				2AD6C8D92507A3730091BA28 /* SpaceDetail.swift */,
-				2AD6C8DA2507A3730091BA28 /* RentComparison.swift */,
-				2AD6C8DB2507A3730091BA28 /* FixedRentRate.swift */,
+				2AD6C8DA2507A3730091BA28 /* RentComparisonSection.swift */,
+				2AD6C8D72507A3730091BA28 /* RevenueSection.swift */,
+				2AD6C8DB2507A3730091BA28 /* FixedRentRateSection.swift */,
+				2AD6C8D82507A3730091BA28 /* ComboRentRateSection.swift */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -1051,7 +1051,7 @@
 				2AD6CA032507A3760091BA28 /* StoreWindow.swift in Sources */,
 				2AD6C9A62507A3760091BA28 /* Division.swift in Sources */,
 				2AD6C9CE2507A3760091BA28 /* PortSubRow.swift in Sources */,
-				2AD6C9BC2507A3760091BA28 /* RentComparison.swift in Sources */,
+				2AD6C9BC2507A3760091BA28 /* RentComparisonSection.swift in Sources */,
 				2AD6C9F82507A3760091BA28 /* OLDFunnelList.swift in Sources */,
 				2AD6CA302507A3760091BA28 /* FunnelList.swift in Sources */,
 				2AD6CA1D2507A3760091BA28 /* PartList.swift in Sources */,
@@ -1118,7 +1118,7 @@
 				2AD6CA2A2507A3760091BA28 /* WorkWithJSON.swift in Sources */,
 				2AD6CA512507A3760091BA28 /* QuickPLSettings.swift in Sources */,
 				2AD6CA362507A3760091BA28 /* FunnelSampleRow.swift in Sources */,
-				2AD6C9BD2507A3760091BA28 /* FixedRentRate.swift in Sources */,
+				2AD6C9BD2507A3760091BA28 /* FixedRentRateSection.swift in Sources */,
 				2AD6CA542507A3760091BA28 /* QuickPLDetailEditor.swift in Sources */,
 				2AD6C9CC2507A3760091BA28 /* PortSampleRow.swift in Sources */,
 				2AD6CA3F2507A3760091BA28 /* FunnelSubRow.swift in Sources */,
@@ -1184,7 +1184,7 @@
 				2AD6CA332507A3760091BA28 /* LevelDetail.swift in Sources */,
 				2AD6CA022507A3760091BA28 /* Ext.swift in Sources */,
 				2AD6CA372507A3760091BA28 /* FunnelEditor.swift in Sources */,
-				2AD6C9BA2507A3760091BA28 /* ComboRentRate.swift in Sources */,
+				2AD6C9BA2507A3760091BA28 /* ComboRentRateSection.swift in Sources */,
 				2AD6CA0C2507A3760091BA28 /* StoreWindowEditor.swift in Sources */,
 				2AD6C9AF2507A3760091BA28 /* Position.swift in Sources */,
 				2AD6C9E72507A3760091BA28 /* PayrollGroupedView.swift in Sources */,
@@ -1214,7 +1214,7 @@
 				2AD6C99F2507A3760091BA28 /* Place.swift in Sources */,
 				2AD6CA222507A3760091BA28 /* BusinessPlanList.swift in Sources */,
 				2AD6C9B42507A3760091BA28 /* StaffVersions.swift in Sources */,
-				2AD6C9B92507A3760091BA28 /* Revenue.swift in Sources */,
+				2AD6C9B92507A3760091BA28 /* RevenueSection.swift in Sources */,
 				2AD6C9F12507A3760091BA28 /* SpreadsheetViewOriginal.swift in Sources */,
 				2AD333262507FD33004240AC /* PresentValueView.swift in Sources */,
 				2AD6CA122507A3760091BA28 /* StoreWindowSubRow.swift in Sources */,
