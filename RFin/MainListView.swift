@@ -41,6 +41,14 @@ struct MainListView: View {
                 }
                 
                 Section {
+                    ListRowWithSheet(icon: "pesetasign.circle", title: "Present Value", subtitle: "Present Value of Discounted Constant Payments.", color: .systemGreen) {
+                        PresentValueView()
+                            .padding(.horizontal)
+                            .environmentObject(PresentValueData())
+                    }
+                }
+                
+                Section {
                     ListRowWithSheet(icon: "clock.arrow.circlepath", title: "Return Estimate", subtitle: "Investment Return Estimate using ratio to Monthly Revenue and Net Profit Margin.", color: .systemPurple) {
                         VStack {
                             ReturnEstimateView()
