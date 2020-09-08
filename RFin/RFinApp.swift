@@ -12,6 +12,8 @@ struct RFinApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(UserData())
+                .environmentObject(SettingsStore())
         }
     }
 }

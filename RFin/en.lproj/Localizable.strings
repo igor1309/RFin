@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  RFin
+
+  Created by Igor Malyarov on 21.10.2019.
+  Copyright © 2019 Igor Malyarov. All rights reserved.
+*/
+"Profit sharing between" = "Profit sharing between Investor and Operating Partner before investment is paid back (\"returned\") and after.";
+"can't delete" = "You can't undo this action.";
+"about Quick P&L" = "Quick P&L is an instrument to quickly model Profit and Loss Statement of the Restaurant by providing some essential data.";
+"about ROI" = "ROI is an instrument for evaluating Investment return for the Project with a number of parameters like years to return investment, grace period, investment horizon, Profit Sharing Split, etc. It could be any kind of project, not just restaurant. Model calculates Cash Flows and IRR.";
+"Add all Samples %@" = "Add all %@ Samples";
+"add all samples or select %@" = "You can add all samples of %@ at once or select individual samples below.";
+"all samples confirmation" = "all samples confirmation";
+"IRR Threshhold value to mark" = "Use IRR Threshhold value to mark calculations with star as attractive.";
+"Return Period mark" = "Use Investment Return Period Threshhold (in months) to mark Quick P&Ls with star as attractive.";
+"see yearly distribution" = "Select this options if you want to see yearly distribution instead of monthly in the ROI list.";
+
+"cards to save" = "When cards are open tap 'Done' to save changes. Swiping the card down to dismiss will ignore any changes.";
+"can delete all %@" = "Your can delete all %@. But you can't undo this.";
+
+"add or replace %@" = "You can add all sample data or replace your %@ with sample data.";
+"replace with samples %@" = "Do you really want to replace all your %@ with sample data?\nThis could not be undone.";
+"Tapping %@" = "Tapping '+ with waveform' will generate %@ with random data.\nTap '+ with lines' to select from samples.";
+"ModelIRR" = "Model estimates Cash Earnings of the project based upon Investment Amount, Projected Return Timeframe and time to ramp up the project (Grace Period).";
+"ice" = "'i/ce' is Investment divided by Cash Earnings per month.";
+"aboutScenarios %@" = "Use Scenarios to evaluate return with Profit Sharing Split options and Grace Period. Scenarios are based on modified Quick P&L with Investment Amount and Return Period corrected to match rounded number of months to return Investment. %@";

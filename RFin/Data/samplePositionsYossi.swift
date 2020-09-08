@@ -1,0 +1,77 @@
+//
+//  SwiftUIView.swift
+//  RFin
+//
+//  Created by Igor Malyarov on 11.12.2019.
+//  Copyright © 2019 Igor Malyarov. All rights reserved.
+//
+
+let samplePositionsYossi = [Position(name: "Sous-Chef",
+                                     division: .kitchen, product: .dinner,
+                                     qty: 1,
+                                     hoursPerWeek: 40,
+                                     lateHoursPerWeek: 8,
+                                     nightHoursPerWeek: 4,
+                                     payPerHourBrutto: 18,
+                                     normalHoursTaxRate: 0.20),
+                            Position(name: "Cook",
+                                     division: .kitchen, product: .dinner,
+                                     qty: 6,
+                                     hoursPerWeek: 40,
+                                     lateHoursPerWeek: 4,
+                                     nightHoursPerWeek: 4,
+                                     payPerHourBrutto: 14,
+                                     normalHoursTaxRate: 0.20),
+                            Position(name: "Dishwasher",
+                                     division: .kitchen, product: .dinner,
+                                     qty: 1,
+                                     hoursPerWeek: 40,
+                                     payPerHourBrutto: 10,
+                                     normalHoursTaxRate: 0.20),
+                            Position(name: "Dishwasher",
+                                     division: .kitchen, product: .dinner,
+                                     qty: 1,
+                                     hoursPerWeek: 20,
+                                     payPerHourBrutto: 10,
+                                     normalHoursTaxRate: 0.20),
+                            
+                            Position(name: "Waiter",
+                                     division: .service, product: .dinner,
+                                     qty: 4,
+                                     hoursPerWeek: 40,
+                                     payPerHourBrutto: 13.5,
+                                     normalHoursTaxRate: 0.20),
+                            Position(name: "Hostess",
+                                     division: .service, product: .dinner,
+                                     qty: 2,
+                                     hoursPerWeek: 40,
+                                     payPerHourBrutto: 13.5,
+                                     normalHoursTaxRate: 0.20),
+                            Position(name: "Bartender",
+                                     division: .service, product: .dinner,
+                                     qty: 2,
+                                     hoursPerWeek: 40,
+                                     payPerHourBrutto: 14,
+                                     normalHoursTaxRate: 0.2),
+                            
+                            Position(name: "Manager",
+                                     division: .mngt, product: .dinner,
+                                     qty: 2,
+                                     hoursPerWeek: 40,
+                                     lateHoursPerWeek: 8,
+                                     nightHoursPerWeek: 8,
+                                     payPerHourBrutto: 15,
+                                     normalHoursTaxRate: 0.20),
+                            
+                            Position(name: "Yossi", division: .top, product: .dinner,
+                                     qty: 1,
+                                     hoursPerWeek: 35.50,
+                                     payPerHourBrutto: 97.25,
+                                     normalHoursTaxRate: 0),
+                            Position(name: "Yoram", division: .top, product: .dinner,
+                                     qty: 1,
+                                     hoursPerWeek: 40,
+                                     payPerHourBrutto: 46,
+                                     normalHoursTaxRate: 0)
+]
+

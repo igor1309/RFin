@@ -1,5 +1,5 @@
 //
-//  ListRow.swift
+//  ListRowWithSheet.swift
 //  RFin
 //
 //  Created by Igor Malyarov on 08.09.2020.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftPI
 
-struct ListRow<T: View>: View {
+struct ListRowWithSheet<T: View>: View {
     
     let icon: String
     let title: String
@@ -58,14 +58,14 @@ struct ListRow<T: View>: View {
     }
 }
 
-struct ListRow_Previews: PreviewProvider {
+struct ListRowWithSheet_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                ListRow(icon: "tornado", title: "Title", subtitle: "Subtitle", color: .systemTeal) {
+                ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "Subtitle", color: .systemTeal) {
                     Text("Test Sheet")
                 }
-                ListRow(icon: "tornado", title: "Title", subtitle: "", color: .systemTeal) {
+                ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "", color: .systemTeal) {
                     Text("Test Sheet")
                 }
             }
