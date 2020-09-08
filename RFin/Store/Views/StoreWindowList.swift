@@ -12,6 +12,7 @@ import SwiftPI
 struct StoreWindowList: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var userData: UserData
+    
     @State private var showAction = false
     @State private var showModal = false
     @State private var modal: ModalType = .samples

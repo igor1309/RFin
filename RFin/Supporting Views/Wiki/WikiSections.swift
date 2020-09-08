@@ -34,7 +34,7 @@ struct WikiSections: View {
         }
         
         Section(
-            header: Text("Topics")
+            header: Text("Wiki")
         ) {
             ListRowWithSheet(icon: "text.append", title: "Business Plan", subtitle: "How to Write a Restaurant Business Plan.", color: .systemPurple) {
                 NavigationView {
@@ -51,22 +51,22 @@ struct WikiSections: View {
         }
         
         Section(
-            header: Text("Testing")
+            header: Text("Performance Marketing")
         ) {
-            ListRowWithSheet(icon: "line.horizontal.3.decrease", title: "Sales Funnels", subtitle: "a work in progress…", color: .systemTeal) {
-                FunnelSampleList()
-                    .environmentObject(self.userData)
-            }
-            
             ListRowWithSheet(icon: "line.horizontal.3.decrease", title: "Sales Funnels", subtitle: "a work in progress…", color: .systemTeal) {
                 NavigationView {
                     FunnelList()
                 }
             }
+            
+            ListRowWithSheet(icon: "line.horizontal.3.decrease", title: "Sales Funnels", subtitle: "a work in progress…", color: .systemTeal) {
+                FunnelSampleList()
+                    .environmentObject(self.userData)
+            }
         }
         
         Section(
-            header: Text("Pattern with Protocol")
+            header: Text("Testing")
         ) {
             ListRowWithSheet(icon: "studentdesk", title: "Store with StoreWindows", subtitle: "A Sample for List Structures.", color: .systemPurple) {
                 NavigationView {
@@ -74,11 +74,6 @@ struct WikiSections: View {
                         .environmentObject(self.userData)
                 }
             }
-        }
-        
-        Section(
-            header: Text("Pattern")
-        ) {
             ListRowWithSheet(icon: "studentdesk", title: "Network with Connections", subtitle: "A Sample for List Structures.", color: .systemGreen) {
                 NavigationView {
                     ConnectionList()
