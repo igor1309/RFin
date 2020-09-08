@@ -18,7 +18,6 @@ struct PartItem: View {
     var part: Part
     
     var body: some View {
-        if #available(iOS 14.0, *) {
             Section(
                 header: Text("\(part.abbreviation) - \(part.name)")
                     .font(.title3)
@@ -45,9 +44,6 @@ struct PartItem: View {
                 }
                 .foregroundColor(self.positionColor)
             }
-        } else {
-            // Fallback on earlier versions
-        }
     }
 }
 

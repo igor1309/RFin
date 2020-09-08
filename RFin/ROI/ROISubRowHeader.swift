@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct ROISubRowHeader: View {
     @EnvironmentObject var settings: SettingsStore
@@ -14,25 +15,17 @@ struct ROISubRowHeader: View {
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            if #available(iOS 14.0, *) {
-                Text(otbivka.name)
-                    .font(.title2).fontWeight(.semibold)
-                    .frame(width: 228, alignment: .leading)
-            } else {
-                // Fallback on earlier versions
-            }
+            Text(otbivka.name)
+                .font(.title2).fontWeight(.semibold)
+                .frame(width: 228, alignment: .leading)
             if otbivka.irr ?? 0 >= settings.irrThreshhold {
                 Image(systemName: "star.circle")
                     .foregroundColor(.systemYellow)
                     .padding(.bottom, 2)
                 Spacer()
             }
-            if #available(iOS 14.0, *) {
-                Text("\(otbivka.investment.smartNotation)")
-                    .font(.title2)
-            } else {
-                // Fallback on earlier versions
-            }
+            Text("\(otbivka.investment.smartNotation)")
+                .font(.title2)
         }
         .foregroundColor(.systemOrange)
         .padding(.bottom, 6)
@@ -45,21 +38,17 @@ struct ROISubRowHeaderNEW: View {
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            if #available(iOS 14.0, *) {
-                Text(otbivka.name)
-                    .font(.title2).fontWeight(.semibold)
-            } else {
-                // Fallback on earlier versions
-            }
-//                .frame(width: 228, alignment: .leading)
+            Text(otbivka.name)
+                .font(.title2).fontWeight(.semibold)
+            //                .frame(width: 228, alignment: .leading)
             if otbivka.irr ?? 0 >= settings.irrThreshhold {
                 Spacer()
                 Image(systemName: "star.circle")
                     .foregroundColor(.systemYellow)
                     .padding(.bottom, 2)
             }
-//            Text("\(otbivka.investment.smartNotation)")
-//                .font(.title2)
+            //            Text("\(otbivka.investment.smartNotation)")
+            //                .font(.title2)
         }
         .foregroundColor(.systemOrange)
         .padding(.bottom, 6)
@@ -73,13 +62,9 @@ struct ROISubRowHeader2: View {
         VStack(spacing: 0) {
             HStack {
                 Spacer()
-                if #available(iOS 14.0, *) {
-                    Text("investment")
-                        .font(.caption2)
-                        .foregroundColor(.systemOrange)
-                } else {
-                    // Fallback on earlier versions
-                }
+                Text("investment")
+                    .font(.caption2)
+                    .foregroundColor(.systemOrange)
             }
             
             HStack(alignment: .firstTextBaseline) {
@@ -100,13 +85,13 @@ struct ROISubRowHeader_Previews: PreviewProvider {
                 ROISubRowHeaderNEW(otbivka: sampleROICollection.otbivki[0])
                 ROISubRowHeaderNEW(otbivka: sampleROICollection.otbivki[1])
                 ROISubRowHeaderNEW(otbivka: sampleROICollection.otbivki[2])
-
+                
                 Spacer()
                 
                 ROISubRowHeader(otbivka: sampleROICollection.otbivki[0])
                 ROISubRowHeader(otbivka: sampleROICollection.otbivki[1])
                 ROISubRowHeader(otbivka: sampleROICollection.otbivki[2])
-
+                
                 Spacer()
                 
                 ROISubRowHeader2(otbivka: sampleROICollection.otbivki[0])

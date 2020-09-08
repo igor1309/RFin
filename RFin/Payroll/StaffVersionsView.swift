@@ -15,27 +15,27 @@ struct StaffVersionsView: View {
     var hapticsAvailable: Bool { CHHapticEngine.capabilitiesForHardware().supportsHaptics }
     
     var body: some View {
-        NavigationView {
-            List {
-                Text("TBD: sort by date modified").font(.subheadline).foregroundColor(.systemRed)
+        //        NavigationView {
+        List {
+            Text("TBD: sort by date modified").font(.subheadline).foregroundColor(.systemRed)
+            
+            ForEach(userData.restaurant.staffVersions.versions, id: \.self) { staff in
                 
-                ForEach(userData.restaurant.staffVersions.versions, id: \.self) { staff in
-                    
-                    StaffVersionRow(staff: staff)
-                }
+                StaffVersionRow(staff: staff)
             }
-            .navigationBarTitle("Staff Versions")
-            .navigationBarItems(
-                trailing: HStack {
-                    TrailingButtonSFSymbol("plus.app") {
-                        self.addSample()
-                    }
-                    
-                    TrailingButtonSFSymbol("plus") {
-                        self.addEmpty()
-                    }
-            })
         }
+        .navigationBarTitle("Staff Versions")
+        .navigationBarItems(
+            trailing: HStack {
+                TrailingButtonSFSymbol("plus.app") {
+                    self.addSample()
+                }
+                
+                TrailingButtonSFSymbol("plus") {
+                    self.addEmpty()
+                }
+            })
+        //        }
     }
     
     func addEmpty() {
@@ -59,9 +59,11 @@ struct StaffVersionsView: View {
 
 struct StaffVersionsPreviews: PreviewProvider {
     static var previews: some View {
-        StaffVersionsView()
-            .environmentObject(UserData())
-            .environment(\.colorScheme, .dark)
-            .environment(\.sizeCategory, .extraLarge)
+        NavigationView {
+            StaffVersionsView()
+        }
+        .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }

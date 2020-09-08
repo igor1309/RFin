@@ -82,30 +82,26 @@ struct ROIDistributionRowTESTING: View {
         VStack(alignment: .leading, spacing: 6 * self.sizer) {
             
             GeometryReader { geometry in
-                if #available(iOS 14.0, *) {
-                    HStack(spacing: 6 * self.sizer) {
-                        Text(self.name)
-                            .frame(width: (geometry.size.width - self.gap) / 7 * 2 * self.sizer + 6, alignment: .center)
-                            //                        .border(Color.systemPink)
-                            .foregroundColor(.systemBlue)
-                        //                    Text(self.name)
-                        //                        .frame(width: (geometry.size.width - self.gap) / 6, alignment: .trailing)
+                HStack(spacing: 6 * self.sizer) {
+                    Text(self.name)
+                        .frame(width: (geometry.size.width - self.gap) / 7 * 2 * self.sizer + 6, alignment: .center)
                         //                        .border(Color.systemPink)
-                        //                        .foregroundColor(.systemPurple)
-                        Text("o.partner")
-                            .frame(width: (geometry.size.width - self.gap) / 6 * self.sizer, alignment: .trailing)
-                            .foregroundColor(.systemBlue)
-                        //                        .border(Color.systemPink)
-                        Text("investor")
-                            .frame(width: (geometry.size.width - self.gap) / 6 * self.sizer, alignment: .trailing)
-                            .foregroundColor(.systemPurple)
-                        //                        .border(Color.systemPink)
-                        Spacer()
-                    }
-                    .font(.caption2)
-                } else {
-                    // Fallback on earlier versions
+                        .foregroundColor(.systemBlue)
+                    //                    Text(self.name)
+                    //                        .frame(width: (geometry.size.width - self.gap) / 6, alignment: .trailing)
+                    //                        .border(Color.systemPink)
+                    //                        .foregroundColor(.systemPurple)
+                    Text("o.partner")
+                        .frame(width: (geometry.size.width - self.gap) / 6 * self.sizer, alignment: .trailing)
+                        .foregroundColor(.systemBlue)
+                    //                        .border(Color.systemPink)
+                    Text("investor")
+                        .frame(width: (geometry.size.width - self.gap) / 6 * self.sizer, alignment: .trailing)
+                        .foregroundColor(.systemPurple)
+                    //                        .border(Color.systemPink)
+                    Spacer()
                 }
+                .font(.caption2)
             }
             
             GeometryReader { geometry in

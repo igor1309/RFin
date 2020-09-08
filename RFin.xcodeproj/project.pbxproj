@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD333112507CD1D004240AC /* InvestmentEvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD333102507CD1D004240AC /* InvestmentEvaluationView.swift */; };
+		2AD333162507CDCC004240AC /* RevenueEstimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD333142507CDCC004240AC /* RevenueEstimateView.swift */; };
+		2AD333172507CDCC004240AC /* InvestmentToRevenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD333152507CDCC004240AC /* InvestmentToRevenueView.swift */; };
+		2AD333182507CDCC004240AC /* ReturnEstimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD333132507CDCC004240AC /* ReturnEstimateView.swift */; };
+		2AD3331B2507CDF1004240AC /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3331A2507CDF1004240AC /* TitleView.swift */; };
+		2AD3331C2507CDF1004240AC /* NetProfitMarginPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD333192507CDF1004240AC /* NetProfitMarginPicker.swift */; };
+		2AD3331E2507D338004240AC /* WikiSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3331D2507D338004240AC /* WikiSections.swift */; };
 		2AD6C87D250799140091BA28 /* RFinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C87C250799140091BA28 /* RFinApp.swift */; };
 		2AD6C87F250799140091BA28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C87E250799140091BA28 /* ContentView.swift */; };
 		2AD6C881250799150091BA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD6C880250799150091BA28 /* Assets.xcassets */; };
@@ -205,9 +212,19 @@
 		2AD6CA592507A3760091BA28 /* QuickPLList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9952507A3760091BA28 /* QuickPLList.swift */; };
 		2AD6CA5A2507A3760091BA28 /* QuickPLSubRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9962507A3760091BA28 /* QuickPLSubRow.swift */; };
 		2AD6CA5B2507A3760091BA28 /* QuickPLRowBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9972507A3760091BA28 /* QuickPLRowBinding.swift */; };
+		2AD6CA5D2507B1E80091BA28 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6CA5C2507B1E80091BA28 /* MainListView.swift */; };
+		2AD6CA5F2507B2490091BA28 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6CA5E2507B2490091BA28 /* MainTabView.swift */; };
+		2AD6CA612507C59A0091BA28 /* MarginMarkup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6CA602507C59A0091BA28 /* MarginMarkup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AD333102507CD1D004240AC /* InvestmentEvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentEvaluationView.swift; sourceTree = "<group>"; };
+		2AD333132507CDCC004240AC /* ReturnEstimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnEstimateView.swift; sourceTree = "<group>"; };
+		2AD333142507CDCC004240AC /* RevenueEstimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueEstimateView.swift; sourceTree = "<group>"; };
+		2AD333152507CDCC004240AC /* InvestmentToRevenueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentToRevenueView.swift; sourceTree = "<group>"; };
+		2AD333192507CDF1004240AC /* NetProfitMarginPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProfitMarginPicker.swift; sourceTree = "<group>"; };
+		2AD3331A2507CDF1004240AC /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		2AD3331D2507D338004240AC /* WikiSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSections.swift; sourceTree = "<group>"; };
 		2AD6C879250799140091BA28 /* RFin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD6C87C250799140091BA28 /* RFinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFinApp.swift; sourceTree = "<group>"; };
 		2AD6C87E250799140091BA28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -407,6 +424,9 @@
 		2AD6C9952507A3760091BA28 /* QuickPLList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickPLList.swift; sourceTree = "<group>"; };
 		2AD6C9962507A3760091BA28 /* QuickPLSubRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickPLSubRow.swift; sourceTree = "<group>"; };
 		2AD6C9972507A3760091BA28 /* QuickPLRowBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickPLRowBinding.swift; sourceTree = "<group>"; };
+		2AD6CA5C2507B1E80091BA28 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		2AD6CA5E2507B2490091BA28 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		2AD6CA602507C59A0091BA28 /* MarginMarkup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginMarkup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +441,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AD3330F2507CD02004240AC /* Investment Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				2AD333102507CD1D004240AC /* InvestmentEvaluationView.swift */,
+				2AD333132507CDCC004240AC /* ReturnEstimateView.swift */,
+				2AD333142507CDCC004240AC /* RevenueEstimateView.swift */,
+				2AD333152507CDCC004240AC /* InvestmentToRevenueView.swift */,
+				2AD333192507CDF1004240AC /* NetProfitMarginPicker.swift */,
+				2AD3331A2507CDF1004240AC /* TitleView.swift */,
+			);
+			path = "Investment Evaluation";
+			sourceTree = "<group>";
+		};
+		2AD333122507CD2C004240AC /* Margin Markup */ = {
+			isa = PBXGroup;
+			children = (
+				2AD6CA602507C59A0091BA28 /* MarginMarkup.swift */,
+			);
+			path = "Margin Markup";
+			sourceTree = "<group>";
+		};
 		2AD6C870250799140091BA28 = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +483,10 @@
 			children = (
 				2AD6C87C250799140091BA28 /* RFinApp.swift */,
 				2AD6C87E250799140091BA28 /* ContentView.swift */,
+				2AD6CA5C2507B1E80091BA28 /* MainListView.swift */,
+				2AD6CA5E2507B2490091BA28 /* MainTabView.swift */,
+				2AD333122507CD2C004240AC /* Margin Markup */,
+				2AD3330F2507CD02004240AC /* Investment Evaluation */,
 				2AD6C98A2507A3760091BA28 /* QuickP&L */,
 				2AD6C8D32507A3730091BA28 /* Rent */,
 				2AD6C97A2507A3760091BA28 /* ROI */,
@@ -752,6 +797,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD6C94E2507A3750091BA28 /* WikiView.swift */,
+				2AD3331D2507D338004240AC /* WikiSections.swift */,
 				2AD6C9472507A3750091BA28 /* Benchmark */,
 				2AD6C94F2507A3750091BA28 /* Parts */,
 				2AD6C9532507A3750091BA28 /* BusinessPlan */,
@@ -1010,18 +1056,22 @@
 				2AD6C9B02507A3760091BA28 /* Venture.swift in Sources */,
 				2AD6CA552507A3760091BA28 /* CostsSection.swift in Sources */,
 				2AD6C9FA2507A3760091BA28 /* OLDFunnelDetail.swift in Sources */,
+				2AD3331B2507CDF1004240AC /* TitleView.swift in Sources */,
 				2AD6CA142507A3760091BA28 /* ShelfRow.swift in Sources */,
 				2AD6C9B12507A3760091BA28 /* Estimate.swift in Sources */,
 				2AD6CA482507A3760091BA28 /* ROISettings.swift in Sources */,
 				2AD6C9FF2507A3760091BA28 /* ScenarioRow.swift in Sources */,
 				2AD6C9E52507A3760091BA28 /* PayrollMatrix.swift in Sources */,
 				2AD6CA3A2507A3760091BA28 /* FunnelRow.swift in Sources */,
+				2AD333112507CD1D004240AC /* InvestmentEvaluationView.swift in Sources */,
 				2AD6CA5B2507A3760091BA28 /* QuickPLRowBinding.swift in Sources */,
+				2AD6CA5D2507B1E80091BA28 /* MainListView.swift in Sources */,
 				2AD6C9AA2507A3760091BA28 /* Product.swift in Sources */,
 				2AD6CA532507A3760091BA28 /* ExpensesModal.swift in Sources */,
 				2AD6C9D12507A3760091BA28 /* ROISplit.swift in Sources */,
 				2AD6C9DE2507A3760091BA28 /* StaffSummary.swift in Sources */,
 				2AD6CA4E2507A3760091BA28 /* ROIOptions.swift in Sources */,
+				2AD6CA612507C59A0091BA28 /* MarginMarkup.swift in Sources */,
 				2AD6CA0B2507A3760091BA28 /* StoreWindowSampleList.swift in Sources */,
 				2AD6C9D52507A3760091BA28 /* ImageRow.swift in Sources */,
 				2AD6CA0F2507A3760091BA28 /* ShelfSubRow.swift in Sources */,
@@ -1072,6 +1122,7 @@
 				2AD6CA042507A3760091BA28 /* Shelf.swift in Sources */,
 				2AD6C9EC2507A3760091BA28 /* PayrollSettings.swift in Sources */,
 				2AD6C89025079CBD0091BA28 /* ListRowWithSheet.swift in Sources */,
+				2AD333162507CDCC004240AC /* RevenueEstimateView.swift in Sources */,
 				2AD6C9E92507A3760091BA28 /* PayrollSuperMatrix.swift in Sources */,
 				2AD6C9DB2507A3760091BA28 /* CurrencySegmentedControl.swift in Sources */,
 				2AD6CA262507A3760091BA28 /* sampleFunnels.swift in Sources */,
@@ -1122,8 +1173,10 @@
 				2AD6CA162507A3760091BA28 /* BenchmarkEditor.swift in Sources */,
 				2AD6C99D2507A3760091BA28 /* Option.swift in Sources */,
 				2AD6C9B82507A3760091BA28 /* SpaceList.swift in Sources */,
+				2AD3331C2507CDF1004240AC /* NetProfitMarginPicker.swift in Sources */,
 				2AD6C9C92507A3760091BA28 /* ConnectionSampleRow.swift in Sources */,
 				2AD6CA3B2507A3760091BA28 /* FunnelSampleList.swift in Sources */,
+				2AD333172507CDCC004240AC /* InvestmentToRevenueView.swift in Sources */,
 				2AD6C9CF2507A3760091BA28 /* ConnectionList.swift in Sources */,
 				2AD6CA092507A3760091BA28 /* StoreWindowRow.swift in Sources */,
 				2AD6C9A52507A3760091BA28 /* UserData.swift in Sources */,
@@ -1144,17 +1197,20 @@
 				2AD6CA462507A3760091BA28 /* ROIDetailFlowsSection.swift in Sources */,
 				2AD6CA272507A3760091BA28 /* sampleParts.swift in Sources */,
 				2AD6CA422507A3760091BA28 /* ROISubRowDistributionPerMonth.swift in Sources */,
+				2AD333182507CDCC004240AC /* ReturnEstimateView.swift in Sources */,
 				2AD6CA0D2507A3760091BA28 /* ShelfSampleRow.swift in Sources */,
 				2AD6C9D02507A3760091BA28 /* GlobalSettings.swift in Sources */,
 				2AD6CA002507A3760091BA28 /* ScenarioDetail.swift in Sources */,
 				2AD6C9C02507A3760091BA28 /* Network.swift in Sources */,
 				2AD6CA102507A3760091BA28 /* ShelfSampleList.swift in Sources */,
 				2AD6C99B2507A3760091BA28 /* Period.swift in Sources */,
+				2AD3331E2507D338004240AC /* WikiSections.swift in Sources */,
 				2AD6C9A32507A3760091BA28 /* Funnel.swift in Sources */,
 				2AD6CA232507A3760091BA28 /* SeatingGuide.swift in Sources */,
 				2AD6C9A92507A3760091BA28 /* ROI.swift in Sources */,
 				2AD6C9EE2507A3760091BA28 /* PayrollList.swift in Sources */,
 				2AD6CA562507A3760091BA28 /* QuickPLOptions.swift in Sources */,
+				2AD6CA5F2507B2490091BA28 /* MainTabView.swift in Sources */,
 				2AD6C9ED2507A3760091BA28 /* StaffVersionsView.swift in Sources */,
 				2AD6C9BB2507A3760091BA28 /* SpaceDetail.swift in Sources */,
 				2AD6CA1A2507A3760091BA28 /* BenchmarkDescription.swift in Sources */,

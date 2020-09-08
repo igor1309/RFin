@@ -17,60 +17,60 @@ struct SpaceList: View {
     var isListEmpty: Bool { userData.restaurant.place.isListEmpty }
     
     var body: some View {
-        NavigationView {
-            List {
-                if isListEmpty {
-                    Group {
-                        Text("about Space").foregroundColor(.systemTeal)
-                        Text("Tapping \("Space")").foregroundColor(.secondary)
-                    }
-                    .font(.footnote)
+        //        NavigationView {
+        List {
+            if isListEmpty {
+                Group {
+                    Text("about Space").foregroundColor(.systemTeal)
+                    Text("Tapping \("Space")").foregroundColor(.secondary)
                 }
-                
-                Section(
-                    header: Text("\(isListEmpty ? "" : "Your list")".uppercased()),
-                    footer: Text("\(isListEmpty ? "Tap + to add Space." : "When cards are open tap 'Done' to save changes. Swiping the card down to dismiss will ignore any changes.\nTapping + will generate new Space with random data.")")) {
-                        
-                        ForEach(userData.restaurant.place.spaces) { space in
-                            SpaceRow(space: space)
-                                .contentShape(Rectangle())
-                        }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
-                }
+                .font(.footnote)
             }
-            .listStyle(GroupedListStyle())
+            
+            Section(
+                header: Text("\(isListEmpty ? "" : "Your list")".uppercased()),
+                footer: Text("\(isListEmpty ? "Tap + to add Space." : "When cards are open tap 'Done' to save changes. Swiping the card down to dismiss will ignore any changes.\nTapping + will generate new Space with random data.")")) {
                 
-            .navigationBarTitle("Spaces")
-                
-            .navigationBarItems(
-                leading: LeadingButtonSFSymbol("gear") {
-                    self.modal = .settings
-                    self.showModal = true
-                },
-                trailing: HStack {
-                    EditButton()
-                    //                        .hidden()
-                    
-                    Group {
-                        TrailingButtonSFSymbol("plus.app") {
-                            self.addSample()
-                        }
-                    }
-                    .opacity(0.6)
-                    
-                    TrailingButtonSFSymbol("plus") {
-                        self.addNew()
-                    }})
-                
-                
-                .sheet(isPresented: $showModal) {
-                    if self.modal == .settings {
-                        SpaceSettings()
-                            .environmentObject(self.userData)
-                    }
+                ForEach(userData.restaurant.place.spaces) { space in
+                    SpaceRow(space: space)
+                        .contentShape(Rectangle())
+                }
+                .onDelete(perform: delete)
+                .onMove(perform: move)
             }
         }
+        .listStyle(GroupedListStyle())
+        
+        .navigationBarTitle("Spaces")
+        
+        .navigationBarItems(
+            leading: LeadingButtonSFSymbol("gear") {
+                self.modal = .settings
+                self.showModal = true
+            },
+            trailing: HStack {
+                EditButton()
+                //                        .hidden()
+                
+                Group {
+                    TrailingButtonSFSymbol("plus.app") {
+                        self.addSample()
+                    }
+                }
+                .opacity(0.6)
+                
+                TrailingButtonSFSymbol("plus") {
+                    self.addNew()
+                }})
+        
+        
+        .sheet(isPresented: $showModal) {
+            if self.modal == .settings {
+                SpaceSettings()
+                    .environmentObject(self.userData)
+            }
+        }
+        //        }
     }
     
     func addNew() {
@@ -107,9 +107,11 @@ struct SpaceList: View {
 
 struct SpaceList_Previews: PreviewProvider {
     static var previews: some View {
-        SpaceList()
-            .environmentObject(UserData())
-            .environment(\.colorScheme, .dark)
+        NavigationView {
+            SpaceList()
+        }
+        .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
         
     }
 }

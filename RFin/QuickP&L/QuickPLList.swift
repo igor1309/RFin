@@ -26,65 +26,65 @@ struct QuickPLList: View {
     var isListEmpty: Bool { userData.quickie.quickPLs.isEmpty }
     
     var body: some View {
-        NavigationView {
-            List {
-                if isListEmpty {
-                    Group {
-                        Text("about Quick P&L").foregroundColor(.systemTeal)
-                        Text("Tapping \("Quick P&L")").foregroundColor(.secondary)
-                    }
-                    .font(.footnote)
+        //        NavigationView {
+        List {
+            if isListEmpty {
+                Group {
+                    Text("about Quick P&L").foregroundColor(.systemTeal)
+                    Text("Tapping \("Quick P&L")").foregroundColor(.secondary)
                 }
-                
-                ForEach(self.userData.quickie.pairs, id: \.self) { pair in
-                    
-                    Section(header: Text("Investment \(pair.investment.formattedGrouped) | Cover Price \(pair.coverPriceVAT.smartNotation)".uppercased())) {
-                        
-                        ForEach(self.userData.quickie.quickPLs
-                            .filter { $0.investment == pair.investment
-                                && $0.coverPriceVAT == pair.coverPriceVAT }, id: \.self) { quickPL in
-                                    
-                                    QuickPLRow(quickPL: quickPL)
-                                        .environmentObject(self.settings)
-                        }
-                    }
-                    
-                }
-
-                Section(footer: Text(isListEmpty ? "" : "ice").foregroundColor(.secondary)) { EmptyView() }
+                .font(.footnote)
             }
-            .listStyle(GroupedListStyle())
+            
+            ForEach(self.userData.quickie.pairs, id: \.self) { pair in
                 
-            .navigationBarTitle("Quick P&Ls")
-                
-            .navigationBarItems(
-                leading: LeadingButtonSFSymbol("gear") {
-                    self.modal = .settings
-                    self.showModal = true
-                },
-                trailing: HStack {
-                    TrailingButtonSFSymbol("waveform.path.badge.plus") {
-                        self.addRandom()
-                    }
-                    TrailingButtonSFSymbol("text.badge.plus") {
-                        withAnimation {
-                            self.modal = .samples
-                            self.showModal = true }}})
-                
-                .sheet(isPresented: $showModal) {
-                    if self.modal == .samples {
-                        QuickPLOptions()
-                            .environmentObject(self.settings)
-                            .environmentObject(self.userData)
-                    }
+                Section(header: Text("Investment \(pair.investment.formattedGrouped) | Cover Price \(pair.coverPriceVAT.smartNotation)".uppercased())) {
                     
-                    if self.modal == .settings {
-                        QuickPLSettings()
+                    ForEach(self.userData.quickie.quickPLs
+                                .filter { $0.investment == pair.investment
+                                    && $0.coverPriceVAT == pair.coverPriceVAT }, id: \.self) { quickPL in
+                        
+                        QuickPLRow(quickPL: quickPL)
                             .environmentObject(self.settings)
-                            .environmentObject(self.userData)
                     }
+                }
+                
+            }
+            
+            Section(footer: Text(isListEmpty ? "" : "ice").foregroundColor(.secondary)) { EmptyView() }
+        }
+        .listStyle(GroupedListStyle())
+        
+        .navigationBarTitle("Quick P&Ls")
+        
+        .navigationBarItems(
+            leading: LeadingButtonSFSymbol("gear") {
+                self.modal = .settings
+                self.showModal = true
+            },
+            trailing: HStack {
+                TrailingButtonSFSymbol("waveform.path.badge.plus") {
+                    self.addRandom()
+                }
+                TrailingButtonSFSymbol("text.badge.plus") {
+                    withAnimation {
+                        self.modal = .samples
+                        self.showModal = true }}})
+        
+        .sheet(isPresented: $showModal) {
+            if self.modal == .samples {
+                QuickPLOptions()
+                    .environmentObject(self.settings)
+                    .environmentObject(self.userData)
+            }
+            
+            if self.modal == .settings {
+                QuickPLSettings()
+                    .environmentObject(self.settings)
+                    .environmentObject(self.userData)
             }
         }
+        //        }
     }
     
     func addRandom() {
@@ -101,10 +101,12 @@ struct QuickPLList: View {
 
 struct QuickPLList_Previews: PreviewProvider {
     static var previews: some View {
-        QuickPLList()
-            .environmentObject(UserData())
-            .environmentObject(SettingsStore())
-            .environment(\.colorScheme, .dark)
-            .environment(\.sizeCategory, .extraLarge)
+        NavigationView {
+            QuickPLList()
+        }
+        .environmentObject(UserData())
+        .environmentObject(SettingsStore())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }

@@ -90,7 +90,7 @@ func loadROICollectionData() -> ROICollection {
         #if DEBUG
         return sampleROICollection
         #else
-        return ROI(otbivki: [])
+        return ROICollection(otbivki: [])
         #endif
     }
     

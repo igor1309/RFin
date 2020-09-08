@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct ROISubRowDistributionPerYear: View {
     var otbivka: Otbivka
@@ -14,21 +15,13 @@ struct ROISubRowDistributionPerYear: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 0) {
-                if #available(iOS 14.0, *) {
-                    Text("total distribution per year")
-                        .foregroundColor(.systemTeal)
-                        .font(.caption2)
-                } else {
-                    // Fallback on earlier versions
-                }
-                if #available(iOS 14.0, *) {
-                    Text(otbivka.distributionPerYear.smartNotation)
-                        .font(.footnote)
-                        .font(.caption2)
-                        .foregroundColor(.systemTeal)
-                } else {
-                    // Fallback on earlier versions
-                }
+                Text("total distribution per year")
+                    .foregroundColor(.systemTeal)
+                    .font(.caption2)
+                Text(otbivka.distributionPerYear.smartNotation)
+                    .font(.footnote)
+                    .font(.caption2)
+                    .foregroundColor(.systemTeal)
             }
             
             ROIDistributionRow(name: "before",
