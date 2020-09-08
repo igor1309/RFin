@@ -18,7 +18,7 @@ struct PresentValueDetailView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Present Value".uppercased()),
+            Section(header: Text("Present Value"),
                     footer: Text(presentValueData.rccf.explanation() + " ").foregroundColor(.primary)
                         + Text(presentValueData.rccf.explanation(presentValueData.multiplier))) {
                             HStack {
@@ -30,7 +30,7 @@ struct PresentValueDetailView: View {
                             .foregroundColor(.systemYellow)
             }
             
-            Section(header: Text("Payment Amount".uppercased())) {
+            Section(header: Text("Payment Amount")) {
                 Picker(selection: $presentValueData.rccf.payment, label: Text("Payment Amount")) {
                     ForEach(payments, id: \.self) { payment in
                         Text("\(Int(payment))").tag(payment)
@@ -40,7 +40,7 @@ struct PresentValueDetailView: View {
                 .pickerStyle(SegmentedPickerStyle())
             }
             
-            Section(header: Text("Payment Period".uppercased())) {
+            Section(header: Text("Payment Period")) {
                 Picker(selection: $presentValueData.rccf.period, label: Text("Payment Period")) {
                     ForEach(RegularConstantCashFlow.Period.allCases, id: \.self) { period in
                         Text(period.id).tag(period)
@@ -50,7 +50,7 @@ struct PresentValueDetailView: View {
                 .pickerStyle(SegmentedPickerStyle())
             }
             
-            Section(header: Text("Lifetime".uppercased())) {
+            Section(header: Text("Lifetime")) {
                 Picker(selection: $presentValueData.rccf.lifetimeType, label: Text("Lifetime Type")) {
                     ForEach(RegularConstantCashFlow.LifetimeType.allCases, id: \.self) { lifetimeType in
                         Text(lifetimeType.id).tag(lifetimeType)
@@ -70,7 +70,7 @@ struct PresentValueDetailView: View {
                 }
             }
             
-            Section(header: Text("Annual Discount Rate".uppercased())) {
+            Section(header: Text("Annual Discount Rate")) {
                 Picker(selection: $presentValueData.rccf.annualRate, label: Text("Annual Discount Rate")) {
                     ForEach(rates, id: \.self) { rate in
                         Text(rate.formattedPercentage).tag(rate)
@@ -80,7 +80,7 @@ struct PresentValueDetailView: View {
                 .pickerStyle(SegmentedPickerStyle())
             }
             
-            Section(header: Text("Multiplier".uppercased())) {
+            Section(header: Text("Multiplier")) {
                 Picker(selection: $presentValueData.multiplier, label: Text("Multiplier")) {
                     ForEach(multipliers, id: \.self) { multiplier in
                         Text(multiplier.threeSignificantDigits).tag(multiplier)

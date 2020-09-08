@@ -38,7 +38,9 @@ struct QuickPLList: View {
             
             ForEach(self.userData.quickie.pairs, id: \.self) { pair in
                 
-                Section(header: Text("Investment \(pair.investment.formattedGrouped) | Cover Price \(pair.coverPriceVAT.smartNotation)".uppercased())) {
+                Section(
+                    header: Text("Investment \(pair.investment.formattedGrouped) | Cover Price \(pair.coverPriceVAT.smartNotation)")
+                ) {
                     
                     ForEach(self.userData.quickie.quickPLs
                                 .filter { $0.investment == pair.investment

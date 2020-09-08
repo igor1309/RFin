@@ -20,17 +20,21 @@ struct ROIOptions: View {
     var body: some View {
         NavigationView {
             List {
-                Section(footer: Text("add all samples or select \("ROI")")) {
+                Section(
+                    footer: Text("add all samples or select \("ROI")")
+                ) {
                     Button("Add all Samples \("ROI")") { self.showAction = true }
                 }
                 
                 ForEach(sampleROICollection.otbivki.map { $0.investment }.removingDuplicates(), id: \.self) { investment in
                     
-                    Section(header: Text(investment.smartNotation.uppercased())) {
+                    Section(
+                        header: Text(investment.smartNotation)
+                    ) {
                         
                         ForEach(sampleROICollection.otbivki
-                            .filter { $0.investment == investment }
-                        , id: \.self) { otbivka in
+                                    .filter { $0.investment == investment }
+                                , id: \.self) { otbivka in
                             
                             VStack(alignment: .leading, spacing: 3) {
                                 ROISubRowHeader(otbivka: otbivka)
@@ -46,17 +50,17 @@ struct ROIOptions: View {
                 }
             }
             .listStyle(GroupedListStyle())
-                
-            .navigationBarTitle("Add Sample")
-                
-            .navigationBarItems(trailing: TrailingButton("Done") {
-                self.presentation.wrappedValue.dismiss() })
-                
-                .actionSheet(isPresented: $showAction) {
-                    ActionSheet(title: Text("ADD ALL SAMPLES"), message: Text("all samples confirmation"), buttons: [
-                        .cancel(),
-                        .default(Text("Yes, add all samples")) {
-                            self.addAllSampleData() }])}
+            .navigationTitle("Add Sample")
+            .navigationBarItems(
+                trailing: TrailingButton("Done") {
+                    presentation.wrappedValue.dismiss()
+                }
+            )
+            .actionSheet(isPresented: $showAction) {
+                ActionSheet(title: Text("ADD ALL SAMPLES"), message: Text("all samples confirmation"), buttons: [
+                                .cancel(),
+                                .default(Text("Yes, add all samples")) {
+                                    self.addAllSampleData() }])}
         }
     }
     

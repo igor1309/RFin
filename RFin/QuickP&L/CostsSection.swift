@@ -13,7 +13,7 @@ struct CostsSection: View {
     @Binding var quickPL: QuickPL
     
     var body: some View {
-        Section(header: Text("Costs, ex VAT".uppercased()),
+        Section(header: Text("Costs, ex VAT"),
                 footer: Text("All Expenses are entered 'netto' (without VAT). Percentage is given to Revenue ex VAT.")) {
             RowWithAmountAndStepperPercentage3(
                 title: "Foodcost",

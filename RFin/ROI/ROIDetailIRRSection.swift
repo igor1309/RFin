@@ -14,7 +14,7 @@ struct ROIDetailIRRSection: View {
     
     var body: some View {
         Section(
-            header: Text("Investor's ROI".uppercased()),
+            header: Text("Investor's ROI"),
             footer: Text("Период для оценки дохода инвестора должен быть больше срока возврата инвестиций. IRR считается на основе квартальных потоков.")
                 .foregroundColor(otbivka.estimationPeriodInYears > otbivka.yearsToReturnInvestment ? .secondary : .systemRed)
         ) {

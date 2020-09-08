@@ -13,22 +13,23 @@ struct ShelfEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Shelf Details".uppercased()),
-                    footer: Text("")) {
-                        
-                        TextFieldWithReset("Name", text: $draft.name)
-                        TextFieldWithReset("Description", text: $draft.description)
-
-                        CustomToggle(title: "Shelf Status", isOn: $draft.isOn)
-
-                        Stepper(value: $draft.number) {
-                            HStack {
-                                Text("Number")
-                                Spacer()
-                                Text(draft.number.formattedFlat)
-                                    .foregroundColor(.systemOrange)
-                            }
-                        }
+            Section(
+                header: Text("Shelf Details"),
+                footer: Text("")
+            ) {
+                TextFieldWithReset("Name", text: $draft.name)
+                TextFieldWithReset("Description", text: $draft.description)
+                
+                CustomToggle(title: "Shelf Status", isOn: $draft.isOn)
+                
+                Stepper(value: $draft.number) {
+                    HStack {
+                        Text("Number")
+                        Spacer()
+                        Text(draft.number.formattedFlat)
+                            .foregroundColor(.systemOrange)
+                    }
+                }
             }
         }
     }

@@ -21,45 +21,49 @@ struct QuickPLSettings: View {
             Form {
                 GlobalSettings()
                 
-                Section(header: Text("SAMPLES"),
-                        footer: Text("add or replace \("Quick P&Ls")")) {
-                            
-                            Button("Add all sample data") {
-                                self.addAllSampleData()
-                            }
-                            
-                            Button("Replace with Sample Data") {
-                                self.showAction2 = true
-                            }
-                            .foregroundColor(.systemRed)
-                            .actionSheet(isPresented: $showAction2) {
-                                ActionSheet(title: Text("replace with samples \("Quick P&Ls")"),
-                                            buttons: [
-                                                .cancel(),
-                                                .destructive(Text("Yes, replace all")) {
-                                                    self.replaceWithSampleData()
-                                                }])}
+                Section(
+                    header: Text("SAMPLES"),
+                    footer: Text("add or replace \("Quick P&Ls")")
+                ) {
+                    
+                    Button("Add all sample data") {
+                        self.addAllSampleData()
+                    }
+                    
+                    Button("Replace with Sample Data") {
+                        self.showAction2 = true
+                    }
+                    .foregroundColor(.systemRed)
+                    .actionSheet(isPresented: $showAction2) {
+                        ActionSheet(title: Text("replace with samples \("Quick P&Ls")"),
+                                    buttons: [
+                                        .cancel(),
+                                        .destructive(Text("Yes, replace all")) {
+                                            self.replaceWithSampleData()
+                                        }])}
                 }
                 
-                Section(header: Text("RESET").padding(.top, 64),
-                        footer: Text("can delete all \("Quick P&Ls")")) {
-                            
-                            Button("Delete all Quick P&Ls") {
-                                self.showAction = true
-                            }
-                            .foregroundColor(userData.quickie.quickPLs.isEmpty ? .secondary : .systemRed)
-                            .disabled(userData.quickie.quickPLs.isEmpty)
-                            .actionSheet(isPresented: $showAction) {
-                                ActionSheet(title: Text("Delete all?".uppercased()),
-                                            message: Text("Are you 100% sure you want to delete all rows?\nYou can't undo this action."), buttons: [
-                                                .cancel(),
-                                                .destructive(Text("Yes, delete all")) {
-                                                    self.deleteAll()
-                                                    self.presentation.wrappedValue.dismiss() }])}
+                Section(
+                    header: Text("RESET").padding(.top, 64),
+                    footer: Text("can delete all \("Quick P&Ls")")
+                ) {
+                    
+                    Button("Delete all Quick P&Ls") {
+                        self.showAction = true
+                    }
+                    .foregroundColor(userData.quickie.quickPLs.isEmpty ? .secondary : .systemRed)
+                    .disabled(userData.quickie.quickPLs.isEmpty)
+                    .actionSheet(isPresented: $showAction) {
+                        ActionSheet(title: Text("Delete all?".uppercased()),
+                                    message: Text("Are you 100% sure you want to delete all rows?\nYou can't undo this action."), buttons: [
+                                        .cancel(),
+                                        .destructive(Text("Yes, delete all")) {
+                                            self.deleteAll()
+                                            self.presentation.wrappedValue.dismiss() }])}
                 }
             }
             .navigationBarTitle("Settings")
-                
+            
             .navigationBarItems(trailing: TrailingButton("Done") {
                 self.presentation.wrappedValue.dismiss()
             })

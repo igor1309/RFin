@@ -33,7 +33,9 @@ struct ROIList: View {
             //                    .font(.footnote)
             //                    .foregroundColor(.secondary)
             
-            Section(header: Text("\(isListEmpty ? "" : "Your list")".uppercased())) {
+            Section(
+                header: Text("\(isListEmpty ? "" : "Your list")")
+            ) {
                 
                 ForEach(userData.roiCollection.otbivki) { otbivka in
                     ROIRow(otbivka: otbivka)
@@ -45,7 +47,7 @@ struct ROIList: View {
             Section(footer: Text(isListEmpty ? "" : "ModelIRR").foregroundColor(.secondary).lineLimit(nil)) { EmptyView() }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle("ROIs")                
+        .navigationTitle("ROIs")                
         .navigationBarItems(
             leading: LeadingButtonSFSymbol("gear") {
                 self.modal = .settings

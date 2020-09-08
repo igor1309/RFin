@@ -15,8 +15,9 @@ struct FixedRentRateSection: View {
     var currency: Currency { userData.restaurant.currency }
     
     var body: some View {
-        Section(header: Text("Fixed Rent Rate".uppercased()),
-                footer: Text("Rent Rate per square meter per month.")
+        Section(
+            header: Text("Fixed Rent Rate"),
+            footer: Text("Rent Rate per square meter per month.")
         ) {
             VStack(spacing: 8) {
                 Stepper(

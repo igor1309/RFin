@@ -13,19 +13,24 @@ struct StoreWindowEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("StoreWindow Details".uppercased()),
-                    footer: Text("")) {
-                        
-                        TextFieldWithReset("Name", text: $draft.name)
-                        TextFieldWithReset("Description", text: $draft.description)
-                        
-                        CustomToggle(title: "StoreWindow Status", isOn: $draft.isOn)
+            Section(
+                header: Text("StoreWindow Details"),
+                footer: Text("")
+            ) {
+                
+                TextFieldWithReset("Name", text: $draft.name)
+                TextFieldWithReset("Description", text: $draft.description)
+                
+                CustomToggle(title: "StoreWindow Status", isOn: $draft.isOn)
             }
             
             if !draft.shelfs.isEmpty {
-                Section(header: Text("Shelfs".uppercased()), footer: Text("Some Footer.")) {
+                Section(
+                    header: Text("Shelfs"),
+                    footer: Text("Some Footer.")
+                ) {
                     ForEach(draft.shelfs, id: \.self) { shelf in
-                        ShelfRow(storeWindow: self.$draft, shelf: shelf)
+                        ShelfRow(storeWindow: $draft, shelf: shelf)
                     }
                 }
             }

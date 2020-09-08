@@ -17,7 +17,7 @@ struct ExpensesModal: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Total".uppercased()),
+                Section(header: Text("Total"),
                         footer: Text("Total monthly operational expenses.")) {
                             RowWithAmountAndPercentage(title: "Revenue ex VAT", currency: quickPL.currency, amount: quickPL.revenuePerMonth, percentage: 0, noPercentage: true)
                                 .font(.subheadline)

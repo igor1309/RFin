@@ -17,7 +17,7 @@ struct InvestmentCapexModal: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Investment (Capex)".uppercased()),
+                Section(header: Text("Investment (Capex)"),
                         footer: Text("CAPEX is equal to Investment and used to calculate average linear depreciation of assets.")) {
                             RowWithStepperDouble(title: "Investment", currency: quickPL.currency, amount: $quickPL.investment, step: quickPL.currency == .rub ? 500_000 : 10_000)
                             HStack {
@@ -28,13 +28,13 @@ struct InvestmentCapexModal: View {
                             }
                 }
                 
-                Section(header: Text("Depreciation".uppercased()),
+                Section(header: Text("Depreciation"),
                         footer: Text("Use accounting rules to set Depreciation Period. Tax authorities don't like aggressive depreciation. Using too short periods will result in unreasonably low tax calculations.")) {
                             RowWithAmountAndPercentage(title: "Depreciation per month", currency: quickPL.currency, amount: quickPL.depreciation, percentage: quickPL.depreciationPercentage)
                             RowWithStepperInt(title: "Depreciation Period", currency: .none, amount: $quickPL.depreciationPeriodForTaxation)
                 }
                 
-                Section(header: Text("Corporate Income Tax".uppercased())) {
+                Section(header: Text("Corporate Income Tax")) {
                     RowWithAmountAndPercentage(title: "Tax", currency: quickPL.currency, amount: quickPL.tax, percentage: quickPL.taxPercentage)
                     RowWithStepperPercentage(title: "Tax Rate", amount: $quickPL.taxRate)
                 }

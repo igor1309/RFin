@@ -19,27 +19,33 @@ struct GlobalSettings: View {
                 .font(.subheadline)
                 .foregroundColor(.systemTeal)
             
-            Section(header: Text("IRR Threshhold".uppercased()),
-                    footer: Text("IRR Threshhold value to mark")) {
-                        RowWithStepperPercentage(title: "IRR Threshhold", amount: $settings.irrThreshhold, step: 0.0025)
-                            .onAppear {
-                                if self.settings.irrThreshhold == 0 {
-                                    self.settings.irrThreshhold = 0.12
-                                }}
+            Section(
+                header: Text("IRR Threshhold"),
+                footer: Text("IRR Threshhold value to mark")
+            ) {
+                RowWithStepperPercentage(title: "IRR Threshhold", amount: $settings.irrThreshhold, step: 0.0025)
+                    .onAppear {
+                        if settings.irrThreshhold == 0 {
+                            settings.irrThreshhold = 0.12
+                        }}
             }
             
-            Section(header: Text("Investment Return Period Threshhold".uppercased()),
-                    footer: Text("Return Period mark")) {
-                        RowWithStepperInt(title: "Period, months", currency: .none, amount: $settings.investmentReturnPeriodThreshhold, step: 1)
-                            .onAppear{
-                                if self.settings.investmentReturnPeriodThreshhold == 0 {
-                                    self.settings.investmentReturnPeriodThreshhold = 24
-                                }}
+            Section(
+                header: Text("Investment Return Period Threshhold"),
+                footer: Text("Return Period mark")
+            ) {
+                RowWithStepperInt(title: "Period, months", currency: .none, amount: $settings.investmentReturnPeriodThreshhold, step: 1)
+                    .onAppear{
+                        if settings.investmentReturnPeriodThreshhold == 0 {
+                            settings.investmentReturnPeriodThreshhold = 24
+                        }}
             }
             
-            Section(header: Text("Distribution".uppercased()),
-                    footer: Text("see yearly distribution").padding(.bottom)) {
-                        Toggle("Show distribution per year", isOn: $settings.showPerYear)
+            Section(
+                header: Text("Distribution"),
+                footer: Text("see yearly distribution").padding(.bottom)
+            ) {
+                Toggle("Show distribution per year", isOn: $settings.showPerYear)
             }
         }
     }

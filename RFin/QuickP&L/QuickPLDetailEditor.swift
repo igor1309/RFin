@@ -18,7 +18,7 @@ struct QuickPLDetailEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Investment".uppercased()),
+            Section(header: Text("Investment"),
                     footer: Text("Ratio (percentage) is Investment to Revenue per year (\(draft.currency.idd)\(draft.revenuePerYear.threeSignificantDigits)). For model simplicity CAPEX is equal to Investment.")) {
                         RowWithAmountAndPercentage(title: "Investment", currency: draft.currency, amount: draft.capex, percentage: draft.capexPercentage)
                             .foregroundColor(.systemOrange)
@@ -29,7 +29,7 @@ struct QuickPLDetailEditor: View {
                         //                            .font(.subheadline)
             }
             
-            Section(header: Text("Revenue".uppercased()),
+            Section(header: Text("Revenue"),
                     footer: Text("Revenue ex VAT. Cover price \(draft.currency.idd)\(draft.coverPrice.threeSignificantDigits) (\(draft.currency.idd)\(draft.coverPriceVAT.threeSignificantDigits) with VAT). Tap 'Revenuer per month' to edit details.")) {
                         RowWithAmountAndPercentage(title: "Revenue per month", currency: draft.currency, amount: draft.revenuePerMonth, percentage: 0, noPercentage: true)
                             .foregroundColor(.systemOrange)
@@ -47,7 +47,7 @@ struct QuickPLDetailEditor: View {
                         .font(.subheadline)
             }
             
-            Section(header: Text("Expenses (per month)".uppercased()),
+            Section(header: Text("Expenses (per month)"),
                     footer: Text("Tap 'Expenses' to edit other Expenses.")) {
                         RowWithAmountAndPercentage(title: "Expenses", currency: draft.currency, amount: draft.costs, percentage: draft.costsPercentage)
                             .foregroundColor(.systemOrange)
@@ -63,7 +63,7 @@ struct QuickPLDetailEditor: View {
                             step: draft.currency == .rub ? 50_000 : 1000)
             }
             
-            Section(header: Text("Financial result (per month)".uppercased()),
+            Section(header: Text("Financial result (per month)"),
                     footer: Text("Percentage is ratio to Revenue. Data per month.")) {
                         Group {
                             RowWithAmountAndPercentage(title: "EBITDA", currency: draft.currency, amount: draft.ebitda, percentage: draft.ebitdaPercentage)

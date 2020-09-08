@@ -28,7 +28,7 @@ struct SpaceList: View {
             }
             
             Section(
-                header: Text("\(isListEmpty ? "" : "Your list")".uppercased()),
+                header: Text("\(isListEmpty ? "" : "Your list")"),
                 footer: Text("\(isListEmpty ? "Tap + to add Space." : "When cards are open tap 'Done' to save changes. Swiping the card down to dismiss will ignore any changes.\nTapping + will generate new Space with random data.")")) {
                 
                 ForEach(userData.restaurant.place.spaces) { space in
@@ -40,37 +40,28 @@ struct SpaceList: View {
             }
         }
         .listStyle(GroupedListStyle())
-        
-        .navigationBarTitle("Spaces")
-        
+        .navigationTitle("Spaces")
         .navigationBarItems(
             leading: LeadingButtonSFSymbol("gear") {
-                self.modal = .settings
-                self.showModal = true
+                modal = .settings
+                showModal = true
             },
-            trailing: HStack {
-                EditButton()
-                //                        .hidden()
-                
-                Group {
-                    TrailingButtonSFSymbol("plus.app") {
-                        self.addSample()
-                    }
+            trailing:
+                HStack {
+                    EditButton()
+                    
+                    TrailingButtonSFSymbol("plus.app") { addSample() }
+                        .opacity(0.6)
+                    
+                    TrailingButtonSFSymbol("plus") { addNew() }
                 }
-                .opacity(0.6)
-                
-                TrailingButtonSFSymbol("plus") {
-                    self.addNew()
-                }})
-        
-        
+        )
         .sheet(isPresented: $showModal) {
-            if self.modal == .settings {
+            if modal == .settings {
                 SpaceSettings()
-                    .environmentObject(self.userData)
+                    .environmentObject(userData)
             }
         }
-        //        }
     }
     
     func addNew() {
@@ -78,7 +69,7 @@ struct SpaceList: View {
         generator.impactOccurred()
         
         withAnimation {
-            self.userData.restaurant.place.add(Space())
+            userData.restaurant.place.add(Space())
         }
     }
     
@@ -87,7 +78,7 @@ struct SpaceList: View {
         generator.impactOccurred()
         
         withAnimation {
-            self.userData.restaurant.place.add(Space(sample: true))
+            userData.restaurant.place.add(Space(sample: true))
         }
     }
     

@@ -15,7 +15,7 @@ struct QuickPLDetailCFSection: View {
     
     var body: some View {
         Group {
-            Section(header: Text("Cash Flow Earnings (per month)".uppercased()),
+            Section(header: Text("Cash Flow Earnings (per month)"),
                     footer: Text("Cash Earnings (or Cash Flow Earnings, or Net Cash Flow, or Net Income Plus Depreciation (NIPD)) is Profit + Depreciation (non-cash expenses in general).\n\n'Investment to Cash Earnings' is a number of months to recover Investment using 100% of Cash Earnings.\n\n* NOTE: There are no estimates of the project's ramp up period. Add 3-6 (6-12) months to have a good enough approximation.")) {
                         Group {
                             RowWithAmountAndPercentage(title: "Cash Earnings", currency: draft.currency, amount: draft.cashEarnings, percentage: draft.cashEarningsPercentage)
@@ -31,7 +31,7 @@ struct QuickPLDetailCFSection: View {
                         .foregroundColor(.systemYellow)
             }
             
-            Section(header: Text("Warren Buffett (per month)".uppercased()).padding(.top),
+            Section(header: Text("Warren Buffett (per month)").padding(.top),
                     footer: Text("Maintenance Capital Expenditures is monthly average of Average Annual Maintenance Capital Expenditures.\n\nWarren Buffett has promoted the concept of “Owner Earnings”. Owner Earnings takes it one step beyond Cash Earnings by subtracting the approximate amount of capital expenditures it  takes to keep the company a going concern.\nOptions would include reinvesting for growth, debt reduction, dividends, and stock buybacks.")) {
                         Group {
                             RowWithAmountAndStepperPercentage3(

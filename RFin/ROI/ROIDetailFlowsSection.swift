@@ -13,7 +13,9 @@ struct ROIDetailFlowsSection: View {
     var otbivka: Otbivka
     
     var body: some View {
-        Section(header: Text("Monthly Flows".uppercased()).padding(.top)) {
+        Section(
+            header: Text("Monthly Flows").padding(.top)
+        ) {
             VStack(alignment: .leading, spacing: 8) {
                 
                 FlowTableRow(text: "#", when: "when", flow1: -1, flow2: -1, flowName: "flow", isHeader: true, isFooter: false)
@@ -59,7 +61,7 @@ struct ROIDetailFlowsSection: View {
     private func exportFlows() {
         let str = otbivka.flows.map { String($0.flowToInvestor) }.joined(separator: ",")
         let filename = getDocumentsDirectory().appendingPathComponent("flows.csv")
-
+        
         do {
             try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
             print("Flows exported to file \(filename)")

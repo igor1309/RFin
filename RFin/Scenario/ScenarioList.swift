@@ -28,7 +28,7 @@ struct ScenarioList: View {
                     .foregroundColor(isListEmpty ? .systemTeal : .secondary)
                     .onTapGesture {
                         withAnimation {
-                            self.showModifySection.toggle()
+                            showModifySection.toggle()
                             let generator = UIImpactFeedbackGenerator(style: .light)
                             generator.impactOccurred()
                         }}
@@ -37,10 +37,10 @@ struct ScenarioList: View {
                     ScenarioModityQuickPL(scenario: $userData.scenario)
                 }
                 
-                Section(header: Text("Quick P&L".uppercased()),
+                Section(header: Text("Quick P&L"),
                         footer: Text("ice")){
-                            
-                            QuickPLSubRow(quickPL: userData.scenario.quickPL)
+                    
+                    QuickPLSubRow(quickPL: userData.scenario.quickPL)
                 }
                 
                 if isListEmpty {
@@ -51,43 +51,44 @@ struct ScenarioList: View {
                 
                 ForEach(userData.scenario.options, id: \.self) { option in
                     
-                    Section(header: Text("Scenario \(self.userData.scenario.options.firstIndex(of: option)! + 1)".uppercased())) {
-                        
+                    Section(
+                        header: Text("Scenario \(userData.scenario.options.firstIndex(of: option)! + 1)")
+                    ) {
                         ScenarioRow(option: option)
                             .contentShape(Rectangle())
                     }
                 }
-                .onDelete(perform: self.delete)
+                .onDelete(perform: delete)
             }
             .listStyle(GroupedListStyle())
-                
-            .navigationBarTitle("Scenarios")
-                
+            .navigationTitle("Scenarios")
             .navigationBarItems(
                 leading: LeadingButtonSFSymbol("gear") {
-                    self.modal = .settings
-                    self.showModal = true },
-                trailing: HStack {
-                    TrailingButtonSFSymbol("waveform.path.badge.plus") {
-                        self.addNewRandomOption()
+                    modal = .settings
+                    showModal = true },
+                trailing:
+                    HStack {
+                        TrailingButtonSFSymbol("waveform.path.badge.plus") {
+                            addNewRandomOption()
+                        }
+                        TrailingButtonSFSymbol("text.badge.plus") {
+                            modal = .samples
+                            showModal = true
+                        }
                     }
-                    TrailingButtonSFSymbol("text.badge.plus") {
-                        self.modal = .samples
-                        self.showModal = true
-                    }})
+            )
+            .sheet(isPresented: $showModal) {
+                if modal == .settings {
+                    ScenarioSettings()
+                        .environmentObject(userData)
+                        .environmentObject(settings)
+                }
                 
-                .sheet(isPresented: $showModal) {
-                    if self.modal == .settings {
-                        ScenarioSettings()
-                            .environmentObject(self.userData)
-                            .environmentObject(self.settings)
-                    }
-                    
-                    if self.modal == .samples {
-                        ScenarioOptions()
-                            .environmentObject(self.userData)
-                            .environmentObject(self.settings)
-                    }
+                if modal == .samples {
+                    ScenarioOptions()
+                        .environmentObject(userData)
+                        .environmentObject(settings)
+                }
             }
         }
     }

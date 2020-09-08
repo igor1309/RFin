@@ -30,47 +30,51 @@ struct StoreWindowList: View {
             }
             
             if !storeWindows.filter({ $0.isOn }).isEmpty {
-                Section(header: Text("On".uppercased()),
-                        footer: Text("Some comment.")) {
-                            ForEach(storeWindows.filter{ $0.isOn }, id: \.self) { storeWindow in
-                                StoreWindowRow(storeWindow: storeWindow)
-                            }
+                Section(
+                    header: Text("On"),
+                    footer: Text("Some comment.")
+                ) {
+                    ForEach(storeWindows.filter{ $0.isOn }, id: \.self) { storeWindow in
+                        StoreWindowRow(storeWindow: storeWindow)
+                    }
                 }
             }
             
             if !storeWindows.filter({ !$0.isOn }).isEmpty {
-                Section(header: Text("Off".uppercased()),
-                        footer: Text("Some comment.")) {
-                            ForEach(storeWindows.filter{ !$0.isOn }, id: \.self) { storeWindow in
-                                StoreWindowRow(storeWindow: storeWindow)
-                            }
+                Section(
+                    header: Text("Off"),
+                    footer: Text("Some comment.")
+                ) {
+                    ForEach(storeWindows.filter{ !$0.isOn }, id: \.self) { storeWindow in
+                        StoreWindowRow(storeWindow: storeWindow)
+                    }
                 }
             }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle("StoreWindows")
+        .navigationTitle("StoreWindows")
         .navigationBarItems(
-            leading: LeadingButton("Done") { self.presentation.wrappedValue.dismiss() },
+            leading: LeadingButton("Done") { presentation.wrappedValue.dismiss() },
             trailing: HStack {
-                TrailingButtonSFSymbol("trash") { self.showAction = true }
+                TrailingButtonSFSymbol("trash") { showAction = true }
                     .disabled(userData.restaurant.store.isStoreEmpty)
-                TrailingButtonSFSymbol("waveform.path.badge.plus") { self.addRandom() }
+                TrailingButtonSFSymbol("waveform.path.badge.plus") { addRandom() }
                 TrailingButtonSFSymbol("text.badge.plus") {
                     withAnimation {
-                        self.modal = .samples
-                        self.showModal = true }}})
-            .actionSheet(isPresented: $showAction) {
-                ActionSheet(title: Text("Delete all?".uppercased()),
-                            message: Text("Are you 100% sure you want to delete all \("Connectins")?\nYou can't undo this action."),
-                            buttons: [
-                                .cancel(),
-                                .destructive(Text("Yes, delete all")) {
-                                    self.deleteAll()
-                                }])}
-            .sheet(isPresented: self.$showModal) {
-                if self.modal == .samples {
-                    StoreWindowSampleList()
-                        .environmentObject(self.userData) }}
+                        modal = .samples
+                        showModal = true }}})
+        .actionSheet(isPresented: $showAction) {
+            ActionSheet(title: Text("Delete all?".uppercased()),
+                        message: Text("Are you 100% sure you want to delete all \("Connectins")?\nYou can't undo this action."),
+                        buttons: [
+                            .cancel(),
+                            .destructive(Text("Yes, delete all")) {
+                                deleteAll()
+                            }])}
+        .sheet(isPresented: $showModal) {
+            if modal == .samples {
+                StoreWindowSampleList()
+                    .environmentObject(userData) }}
     }
     
     func addRandom() {

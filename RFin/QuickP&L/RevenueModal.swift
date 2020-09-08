@@ -18,7 +18,7 @@ struct RevenueModal: View {
         NavigationView {
             Form {
                 Section(
-                    header: Text("Covers".uppercased()),
+                    header: Text("Covers"),
                     footer: Text("VAT \(quickPL.vat.formattedPercentage). Average covers per day: \((Double(quickPL.noOfCoversPerWeek) / 7).rounded(.up).formattedGrouped).")) {
                         
                         Group {
@@ -49,7 +49,7 @@ struct RevenueModal: View {
                         //                            .foregroundColor(.secondary)
                 }
                 
-                Section(header: Text("Revenue".uppercased()),
+                Section(header: Text("Revenue"),
                         footer: VStack(alignment: .leading, spacing: 3) {
                             HStack(spacing:0) {
                                 Text("revenue")

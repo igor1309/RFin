@@ -71,8 +71,9 @@ struct ROIDetailInvestorSections: View {
                 .font(.subheadline)
             }
             
-            Section(header: Text("Investor's Share".uppercased()),
-                    footer: Text("Profit sharing between Investor and Operating Partner before investment is paid back (\"returned\") and after.")
+            Section(
+                header: Text("Investor's Share"),
+                footer: Text("Profit sharing between Investor and Operating Partner before investment is paid back (\"returned\") and after.")
             ) {
                 Group {
                     Stepper(value: $otbivka.investorsShareBeforeReturn, in: 0...1, step: 0.05) {

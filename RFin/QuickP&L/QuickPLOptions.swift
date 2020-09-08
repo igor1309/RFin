@@ -16,43 +16,46 @@ struct QuickPLOptions: View {
     
     @State private var showDetail = false
     @State private var showAction = false
-
+    
     var body: some View {
         NavigationView {
             List {
-                Section(footer: Text("add all samples or select \("Quick P&L")")) {
+                Section(
+                    footer: Text("add all samples or select \("Quick P&L")")
+                ) {
                     Button("Add all Samples \("Quick P&L")") { self.showAction = true }
                 }
                 
                 ForEach(sampleQuickie.quickPLs.map { $0.currency }.removingDuplicates(), id: \.self) { currency in
                     
-                    Section(header: Text(currency.idd.uppercased())) {
-                                
-                                ForEach(sampleQuickie.quickPLs
+                    Section(
+                        header: Text(currency.idd)
+                    ) {
+                        ForEach(sampleQuickie.quickPLs
                                     .filter { $0.currency == currency }, id: \.self) { quickPL in
+                            
+                            QuickPLSubRow(quickPL: quickPL)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    self.addSelected(quickPL: quickPL)
                                     
-                                    QuickPLSubRow(quickPL: quickPL)
-                                        .contentShape(Rectangle())
-                                        .onTapGesture {
-                                            self.addSelected(quickPL: quickPL)
-                                            
-                                    }
                                 }
+                        }
                     }
                 }
             }
             .listStyle(GroupedListStyle())
-                
-            .navigationBarTitle("Add Sample")
-                
-            .navigationBarItems(trailing: TrailingButton("Done") {
-                self.presentation.wrappedValue.dismiss() })
-            
-                .actionSheet(isPresented: $showAction) {
-                    ActionSheet(title: Text("ADD ALL SAMPLES"), message: Text("all samples confirmation"), buttons: [
-                        .cancel(),
-                        .default(Text("Yes, add all samples")) {
-                            self.addAllSampleData() }])}
+            .navigationTitle("Add Sample")
+            .navigationBarItems(
+                trailing: TrailingButton("Done") {
+                    presentation.wrappedValue.dismiss()
+                }
+            )
+            .actionSheet(isPresented: $showAction) {
+                ActionSheet(title: Text("ADD ALL SAMPLES"), message: Text("all samples confirmation"), buttons: [
+                                .cancel(),
+                                .default(Text("Yes, add all samples")) {
+                                    self.addAllSampleData() }])}
         }
     }
     
