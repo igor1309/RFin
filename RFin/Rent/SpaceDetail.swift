@@ -12,7 +12,9 @@ import SwiftPI
 struct SpaceDetail: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var userData: UserData
+    
     var space: Space
+    
     @State var draft: Space
     @State private var showRename = false
     @State private var showAlert = false
@@ -25,42 +27,42 @@ struct SpaceDetail: View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    if showRename {
-                        TextField("Place Name", text: $draft.name)
-                    }
-                    
-                    Button(showRename ? "Done" : "Rename") {
-                        self.showRename.toggle()
-                    }
+                if showRename {
+                    TextField("Place Name", text: $draft.name)
                 }
                 
-                RentComparison(space: $draft)
+                Button(showRename ? "Done" : "Rename") {
+                    showRename.toggle()
+                }
                 
-                Revenue(space: $draft)
+                RentComparisonSection(space: $draft)
                 
-                FixedRentRate(space: $draft)
+                RevenueSection(space: $draft)
                 
-                ComboRentRate(space: $draft)
+                FixedRentRateSection(space: $draft)
+                
+                ComboRentRateSection(space: $draft)
             }
-            .navigationBarTitle(draft.name)
-                
+            .navigationTitle(draft.name)
             .navigationBarItems(trailing: TrailingButton("Done") {
                 self.saveAndDismiss()
             })
-                
-                .actionSheet(isPresented: $showAlert) {
-                    ActionSheet(title: Text("Delete Space?"),
-                                message: Text("This operation couldn't be undone."),
-                                buttons: [
-                                    .cancel(),
-                                    .destructive(Text("Yes, delete space")) {
-                                        self.presentation.wrappedValue.dismiss()
-                                        self.delete()
-                                    }
-                    ])
-            }
+            .actionSheet(isPresented: $showAlert, content: deleteAction)
         }
+    }
+    
+    private func deleteAction() -> ActionSheet {
+        ActionSheet(
+            title: Text("Delete Space?"),
+            message: Text("This operation couldn't be undone."),
+            buttons: [
+                .cancel(),
+                .destructive(Text("Yes, delete space")) {
+                    self.presentation.wrappedValue.dismiss()
+                    self.delete()
+                }
+            ]
+        )
     }
     
     private func delete() {
