@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		2AD6C87F250799140091BA28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C87E250799140091BA28 /* ContentView.swift */; };
 		2AD6C881250799150091BA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD6C880250799150091BA28 /* Assets.xcassets */; };
 		2AD6C884250799150091BA28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD6C883250799150091BA28 /* Preview Assets.xcassets */; };
+		2AD6C88D25079BC10091BA28 /* SwiftPI in Frameworks */ = {isa = PBXBuildFile; productRef = 2AD6C88C25079BC10091BA28 /* SwiftPI */; };
+		2AD6C89025079CBD0091BA28 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C88F25079CBD0091BA28 /* ListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,7 @@
 		2AD6C880250799150091BA28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AD6C883250799150091BA28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AD6C885250799150091BA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AD6C88F25079CBD0091BA28 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD6C88D25079BC10091BA28 /* SwiftPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 			children = (
 				2AD6C87C250799140091BA28 /* RFinApp.swift */,
 				2AD6C87E250799140091BA28 /* ContentView.swift */,
+				2AD6C88E25079CA00091BA28 /* Supporting Views */,
 				2AD6C880250799150091BA28 /* Assets.xcassets */,
 				2AD6C885250799150091BA28 /* Info.plist */,
 				2AD6C882250799150091BA28 /* Preview Content */,
@@ -67,6 +72,14 @@
 				2AD6C883250799150091BA28 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AD6C88E25079CA00091BA28 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AD6C88F25079CBD0091BA28 /* ListRow.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +98,9 @@
 			dependencies = (
 			);
 			name = RFin;
+			packageProductDependencies = (
+				2AD6C88C25079BC10091BA28 /* SwiftPI */,
+			);
 			productName = RFin;
 			productReference = 2AD6C879250799140091BA28 /* RFin.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 2AD6C870250799140091BA28;
+			packageReferences = (
+				2AD6C88B25079BC10091BA28 /* XCRemoteSwiftPackageReference "SwiftPI" */,
+			);
 			productRefGroup = 2AD6C87A250799140091BA28 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +159,7 @@
 			files = (
 				2AD6C87F250799140091BA28 /* ContentView.swift in Sources */,
 				2AD6C87D250799140091BA28 /* RFinApp.swift in Sources */,
+				2AD6C89025079CBD0091BA28 /* ListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +348,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2AD6C88B25079BC10091BA28 /* XCRemoteSwiftPackageReference "SwiftPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/igor1309/SwiftPI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2AD6C88C25079BC10091BA28 /* SwiftPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AD6C88B25079BC10091BA28 /* XCRemoteSwiftPackageReference "SwiftPI" */;
+			productName = SwiftPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2AD6C871250799140091BA28 /* Project object */;
 }
