@@ -14,8 +14,8 @@ struct ScenarioDetail: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var settings: SettingsStore
     
-    var option: Option
-    var isNew: Bool
+    let option: Option
+    let isNew: Bool
     
     init(option: Option, isNew: Bool) {
         self.option = option
@@ -37,87 +37,73 @@ struct ScenarioDetail: View {
                     Group {
                         Stepper(value: $draft.investorsShareBeforeReturn, in: 0...1, step: 0.05) {
                             HStack {
-                                Image(systemName: "square.fill.and.line.vertical.and.square")
-                                    .frame(minWidth: 28, alignment: .leading)
-                                Text("Before Return")
+                                Label("Before Return", systemImage: "square.fill.and.line.vertical.and.square")
                                 Spacer()
                                 Text(draft.investorsShareBeforeReturn.formattedPercentage)
                                     .foregroundColor(.systemOrange)
                             }
                         }
                         .contextMenu {
-                            Button(action: {
+                            Button {
                                 draft.investorsShareBeforeReturn = 1.0
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(1.0.formattedPercentage)
+                            } label: {
+                                Label(1.0.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareBeforeReturn = 0.9
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.9.formattedPercentage)
+                            } label: {
+                                Label(0.9.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareBeforeReturn = 0.80
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.80.formattedPercentage)
+                            } label: {
+                                Label(0.80.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareBeforeReturn = 0.75
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.75.formattedPercentage)
+                            } label: {
+                                Label(0.75.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareBeforeReturn = 0.50
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.50.formattedPercentage)
+                            } label: {
+                                Label(0.50.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
                         }
                         
                         Stepper(value: $draft.investorsShareAfterReturn, in: 0...1, step: 0.05) {
                             HStack {
-                                Image(systemName: "square.and.line.vertical.and.square.fill")
-                                    .frame(minWidth: 28, alignment: .leading)
-                                Text("After Return")
+                                Label("After Return", systemImage: "square.and.line.vertical.and.square.fill")
                                 Spacer()
                                 Text(draft.investorsShareAfterReturn.formattedPercentage)
                                     .foregroundColor(.systemOrange)
                             }
                         }
                         .contextMenu {
-                            Button(action: {
+                            Button {
                                 draft.investorsShareAfterReturn = 1.0
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(1.0.formattedPercentage)
+                            } label: {
+                                Label(1.0.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareAfterReturn = 0.7
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.7.formattedPercentage)
+                            } label: {
+                                Label(0.7.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareAfterReturn = 0.65
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.65.formattedPercentage)
+                            } label: {
+                                Label(0.65.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareAfterReturn = 0.6
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.6.formattedPercentage)
+                            } label: {
+                                Label(0.6.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
-                            Button(action: {
+                            Button {
                                 draft.investorsShareAfterReturn = 0.50
-                            }) {
-                                Image(systemName: "arrow.uturn.left.square")
-                                Text(0.50.formattedPercentage)
+                            } label: {
+                                Label(0.50.formattedPercentage, systemImage: "arrow.uturn.left.square")
                             }
                         }
                     }
