@@ -35,7 +35,7 @@ struct MainListView: View {
                 }
                 
                 Section {
-                    ListRowWithSheet(icon: "square.stack.3d.down.right.fill", title: "Margin and Markup", subtitle: "", color: .systemYellow) {
+                    ListRowWithSheet(icon: "square.stack.3d.up.fill", title: "Margin and Markup", subtitle: "", color: .systemYellow) {
                         MarginMarkup()
                     }
                 }

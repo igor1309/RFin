@@ -16,7 +16,13 @@ struct ListRowWithSheet<T: View>: View {
     let color: Color
     let sheet: () -> T
     
-    init(icon: String, title: String, subtitle: String, color: Color, @ViewBuilder sheet: @escaping () -> T) {
+    init(
+        icon: String,
+        title: String,
+        subtitle: String,
+        color: Color,
+        @ViewBuilder sheet: @escaping () -> T
+    ) {
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
@@ -51,10 +57,10 @@ struct ListRowWithSheet<T: View>: View {
             label
             Spacer()
         }
-            .foregroundColor(color)
-            .contentShape(Rectangle())
-            .onTapGesture { showSheet = true }
-            .sheet(isPresented: $showSheet) { sheet() }
+        .foregroundColor(color)
+        .contentShape(Rectangle())
+        .onTapGesture { showSheet = true }
+        .sheet(isPresented: $showSheet) { sheet() }
     }
 }
 
