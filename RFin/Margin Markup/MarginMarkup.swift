@@ -19,12 +19,37 @@ struct MarginMarkup: View {
             get { 1 - 1/(markup + 1) }
             set { markup = newValue < 1 ? 1/(1 - newValue) - 1 : 0 }
         }
+        
+        init(markup: Double) {
+            self.markup = markup
+        }
+        
+        init?(margin: Double) {
+            guard margin > 0 && margin < 1 else {
+                return nil
+            }
+            self.init(markup: 10/100)
+            self.margin = margin
+        }
     }
     
     @State var ratio = Ratio(markup: 3.00)
     
     private let values1: [Double] = [20, 25, 50, 75, 100, 150].map { $0/100 }
     private let values2: [Double] = [200, 250, 300, 350, 400, 500].map { $0/100 }
+    private var values: [Double] { values1 + values2 }
+    
+    
+    struct Pair: Hashable {
+        var markup: Double
+        var margin: Double
+    }
+    
+    private var tableValues: [Pair] {
+        values.map {
+            Pair(markup: $0, margin: Ratio(markup: $0).margin)
+        }
+    }
     
     var body: some View {
         VStack(spacing: 16) {
@@ -50,7 +75,7 @@ struct MarginMarkup: View {
                     picker(values2)
                 } else {
                     markupStepperSlider()
-                    picker(values1 + values2)
+                    picker(values)
                 }
                 
             }
@@ -58,6 +83,21 @@ struct MarginMarkup: View {
             Divider().padding(.vertical)
             
             marginStepperSlider()
+            
+            if sizeClass == .regular {
+                VStack(spacing: 3) {
+                    ForEach(tableValues, id: \.self) { value in
+                        HStack {
+                            Spacer()
+                            Text("\(value.markup * 100, specifier: "%.f%%")")
+                            Spacer()
+                            Text("\(value.margin * 100, specifier: "%.f%%")")
+                            Spacer()
+                        }
+                        .font(.subheadline)
+                    }
+                }
+            }
             
             Spacer()
         }
@@ -70,6 +110,7 @@ struct MarginMarkup: View {
     private func item(_ item: Double, title: String) -> some View {
         VStack {
             Text("\(item, specifier: "%.f%%")")
+                .foregroundColor(.systemTeal)
                 .font(.system(size: 36, weight: .semibold, design: .rounded))
             Text(title.uppercased())
                 .foregroundColor(.secondary)
