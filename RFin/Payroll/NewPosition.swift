@@ -19,7 +19,7 @@ struct NewPosition: View {
             List {
                 ForEach(sampleStaff.divisions, id: \.self) { division in
                     
-                    Section(header: Text(division.id.uppercased())
+                    Section(header: Text(division.id)
                         .foregroundColor(.primary)) {
                             
                             ForEach(sampleStaff.positions

@@ -11,6 +11,7 @@ import SwiftPI
 
 struct BenchmarkList: View {
     @EnvironmentObject var settings: SettingsStore
+    
     @State private var showModal = false
     
     var body: some View {
@@ -28,7 +29,7 @@ struct BenchmarkList: View {
             List {
                 ForEach(BenchmarkGroup.allCases, id: \.self) { group in
                     
-                    Section(header: Text(group.id.uppercased())) {
+                    Section(header: Text(group.id)) {
                         
                         ForEach(sampleAnalytics.benchmarks
                                     .filter({

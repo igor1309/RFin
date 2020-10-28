@@ -10,7 +10,10 @@ import SwiftUI
 import SwiftPI
 
 struct SpaceList: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     @EnvironmentObject var userData: UserData
+    
     @State private var showModal = false
     @State private var modal: ModalType = .settings
     
@@ -40,27 +43,47 @@ struct SpaceList: View {
             }
         }
         .listStyle(GroupedListStyle())
+        
         .navigationTitle("Spaces")
+        
         .navigationBarItems(
-            leading: LeadingButtonSFSymbol("gear") {
-                modal = .settings
-                showModal = true
-            },
-            trailing:
-                HStack {
-                    EditButton()
-                    
-                    TrailingButtonSFSymbol("plus.app") { addSample() }
-                        .opacity(0.6)
-                    
-                    TrailingButtonSFSymbol("plus") { addNew() }
-                }
+            leading: leading,
+            trailing: trailing
         )
         .sheet(isPresented: $showModal) {
             if modal == .settings {
                 SpaceSettings()
                     .environmentObject(userData)
             }
+        }
+    }
+    
+    @ViewBuilder
+    var leading: some View {
+        if sizeClass == .compact {
+            LeadingButtonSFSymbol("gear") {
+                modal = .settings
+                showModal = true
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var trailing: some View {
+        HStack {
+            EditButton()
+            
+            if sizeClass == .regular {
+                TrailingButtonSFSymbol("gear") {
+                    self.modal = .settings
+                    self.showModal = true
+                }
+            }
+            
+            TrailingButtonSFSymbol("plus.app") { addSample() }
+                .opacity(0.6)
+            
+            TrailingButtonSFSymbol("plus") { addNew() }
         }
     }
     

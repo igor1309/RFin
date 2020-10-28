@@ -38,7 +38,11 @@ struct MainTabView: View {
                 }
                 .tag(3)
             
-            WikiView()
+            List {
+                WikiSections(sizeClass: .compact)
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Wiki")
                 .tabItem {
                     Label("Wiki", systemImage: "book")
                 }

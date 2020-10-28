@@ -13,7 +13,7 @@ struct PortEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Port Details".uppercased()),
+            Section(header: Text("Port Details"),
                     footer: Text("")) {
                         
                         TextFieldWithReset("Name", text: $draft.name)

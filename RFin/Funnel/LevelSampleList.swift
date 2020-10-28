@@ -22,7 +22,7 @@ struct LevelSampleList: View {
                     Button("Add all Sample \("Levels")") { self.showAction = true }
                 }
                 
-                Section(header: Text("Sample Funnels".uppercased()),
+                Section(header: Text("Sample Funnels"),
                         footer: Text("Selected sample would be used to create a new entry to your Funnels.")) {
                             ForEach(sampleFunnels[0].levels, id: \.self) { level in
                                 LevelSampleRow(funnel: self.$funnel,

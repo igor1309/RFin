@@ -23,7 +23,7 @@ struct FunnelTopSection: View {
             + Text("\nHold for context menu.").italic()
     
     var body: some View {
-        Section(header: Text("Top (per \(draft.period.id))".uppercased()),
+        Section(header: Text("Top (per \(draft.period.id))"),
                 footer: footer) {
                     Group {
                         Stepper(value: $draft.traffic, step: 5_000) {

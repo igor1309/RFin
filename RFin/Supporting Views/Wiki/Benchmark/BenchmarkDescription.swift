@@ -11,9 +11,11 @@ import SwiftPI
 
 struct BenchmarkDescription: View {
     @Environment(\.presentationMode) var presentation
+    
     @EnvironmentObject var settings: SettingsStore
     
     @Binding var benchmark: Benchmark
+    
     @State private var draft: Benchmark
     @State private var editMode = false
     

@@ -23,7 +23,7 @@ struct FunnelSampleList: View {
                     Button("Add all Sample \("Funnels")") { self.showAction = true }
                 }
                 
-                Section(header: Text("Sample Funnels".uppercased()),
+                Section(header: Text("Sample Funnels"),
                         footer: Text("Selected sample would be used to create a new entry to your Funnels.")) {
                             ForEach(sampleFunnels, id: \.self) { funnel in
                                 FunnelSampleRow(funnel: funnel)

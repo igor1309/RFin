@@ -14,7 +14,7 @@ struct FunnelLevelsSection: View {
     @Binding var draft: Funnel
     
     var body: some View {
-        Section(header: Text("Levels".uppercased())) {
+        Section(header: Text("Levels")) {
             ForEach(draft.levels, id: \.self) { level in
                 
                 OLDLevelRow(funnel: self.$draft, level: level)

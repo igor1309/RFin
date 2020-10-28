@@ -14,7 +14,7 @@ struct FunnelBottomSection: View {
     @Binding var draft: Funnel
     
     var body: some View {
-        Section(header: Text("Bottom (per \(draft.period.id))".uppercased()),
+        Section(header: Text("Bottom (per \(draft.period.id))"),
                 footer: Text("Cost Per Guest is Cost Per Sale (CPS).")) {
                     
                     ImageRow(image: "briefcase",

@@ -13,7 +13,7 @@ struct ConnectionEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Connection Details".uppercased()),
+            Section(header: Text("Connection Details"),
                     footer: Text("")) {
                         
                         TextFieldWithReset("Name", text: $draft.name)

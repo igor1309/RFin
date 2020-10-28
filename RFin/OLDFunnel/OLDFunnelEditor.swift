@@ -13,10 +13,8 @@ struct OLDFunnelEditor: View {
 
     var body: some View {
         Form {
-            Section(header: Text("".uppercased())) {
-                
+            Section {
                 TextFieldWithReset("Name", text: $draft.name)
-                
                 Toggle("Sales channel is running", isOn: $draft.isRunning)
             }
             

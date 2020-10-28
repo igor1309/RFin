@@ -16,15 +16,17 @@ struct BenchmarkSettings: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Edit".uppercased())) {
+                Section(header: Text("Edit")) {
                     Toggle("Allow editing", isOn: $settings.editingIsAllowed)
                     
                 }
             }
             .navigationBarTitle("Settings")
-                
-            .navigationBarItems(trailing: TrailingButtonSFSymbol("checkmark") {
-                self.presentation.wrappedValue.dismiss() })
+            .navigationBarItems(
+                trailing: TrailingButtonSFSymbol("checkmark") {
+                    self.presentation.wrappedValue.dismiss()
+                }
+            )
         }
     }
 }

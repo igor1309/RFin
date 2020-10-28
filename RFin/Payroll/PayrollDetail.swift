@@ -28,7 +28,7 @@ struct PayrollDetail: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Total".uppercased()),
+                Section(header: Text("Total"),
                         footer: WeeklyMonthly(
                             weeklyBrutto:        Double(draft.qty) * draft.payPerWeekBrutto,
                             weeklyBruttoBrutto:  Double(draft.qty) * draft.payPerWeekBruttoBrutto,
@@ -46,7 +46,7 @@ struct PayrollDetail: View {
                     }
                 }
                 
-                Section(header: Text("Position".uppercased())) {
+                Section(header: Text("Position")) {
                     
                     Picker(selection: $draft.name,
                            label: TextField("Position Name", text: $draft.name)
@@ -75,7 +75,7 @@ struct PayrollDetail: View {
                     }
                 }
                 
-                Section(header: Text("Base Pay".uppercased()),
+                Section(header: Text("Base Pay"),
                         footer: BruttoBrutto(title: "Base Hourly Rate",
                                              brutto:        draft.payPerHourBrutto,
                                              bruttoBrutto:  draft.payPerHourBruttoBrutto,
@@ -92,7 +92,7 @@ struct PayrollDetail: View {
                               isBasePay: true)
                 }
                 
-                Section(header: Text("Late & Night Bonus".uppercased()),
+                Section(header: Text("Late & Night Bonus"),
                         footer:
                     VStack(alignment: .leading, spacing: 4) {
                         if draft.payPerHourBrutto != draft.totalPayPerHourBrutto {
@@ -123,14 +123,14 @@ struct PayrollDetail: View {
                               isBasePay: false)
                 }
                 
-                Section(header: Text("Payroll".uppercased())) {
+                Section(header: Text("Payroll")) {
                     WeeklyMonthly(weeklyBrutto:        draft.payPerWeekBrutto,
                                   weeklyBruttoBrutto:  draft.payPerWeekBruttoBrutto,
                                   monthlyBrutto:       draft.payPerMonthBrutto,
                                   monthlyBruttoBrutto: draft.payPerMonthBruttoBrutto)
                 }
                 
-                Section(header: Text("One way".uppercased()).padding(.top, 64),
+                Section(header: Text("One way").padding(.top, 64),
                         footer: Text("Don't rush. This can not be undone.")) {
                             Button("Delete Position") {
                                 self.showAlert = true

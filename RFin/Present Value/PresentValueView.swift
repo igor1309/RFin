@@ -7,35 +7,40 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct PresentValueView: View {
+    @Environment(\.presentationMode) var presentation
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     @EnvironmentObject var presentValueData: PresentValueData
+    
     @State private var showModal = false
     
     var body: some View {
-        //NavigationView {
-            VStack(alignment: .leading, spacing: 16) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Constant payments")
-                        .foregroundColor(.systemYellow)
-                        .font(.caption)
-                        .padding(.top)
-                    
-                    HStack {
-                        Text("Payment PV")
-                        Spacer()
-                        Text(presentValueData.rccf.pv.formattedGrouped)
-                    }
-                    .font(.largeTitle)
+        VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Constant payments")
                     .foregroundColor(.systemYellow)
+                    .font(.caption)
+                    .padding(.top)
+                
+                HStack {
+                    Text("Payment PV")
+                    Spacer()
+                    Text(presentValueData.rccf.pv.formattedGrouped)
                 }
-                
-                Text(presentValueData.rccf.explanation())
-                    .foregroundColor(.systemTeal)
-                
-                Text(presentValueData.rccf.explanation(presentValueData.multiplier))
-                    .foregroundColor(.secondary)
-                
+                .font(.largeTitle)
+                .foregroundColor(.systemYellow)
+            }
+            
+            Text(presentValueData.rccf.explanation())
+                .foregroundColor(.systemTeal)
+            
+            Text(presentValueData.rccf.explanation(presentValueData.multiplier))
+                .foregroundColor(.secondary)
+            
+            if sizeClass == .compact {
                 HStack {
                     Spacer()
                     
@@ -59,9 +64,24 @@ struct PresentValueView: View {
                 }
                 
                 Spacer()
+            } else {
+                PresentValueDetailView()
             }
-            .padding()
-        //}
+            
+        }
+        .padding()
+        
+        .navigationBarItems(trailing: trailing)
+        .navigationBarTitleDisplayMode(sizeClass == .compact ? .large : .inline)
+    }
+    
+    @ViewBuilder
+    var trailing: some View {
+        if sizeClass == .compact {
+            TrailingButton("Done") {
+                self.presentation.wrappedValue.dismiss()
+            }
+        }
     }
 }
 

@@ -17,6 +17,8 @@ struct Pair: Hashable {
 
 
 struct QuickPLList: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var settings: SettingsStore
     
@@ -60,18 +62,8 @@ struct QuickPLList: View {
         .navigationBarTitle("Quick P&Ls")
         
         .navigationBarItems(
-            leading: LeadingButtonSFSymbol("gear") {
-                self.modal = .settings
-                self.showModal = true
-            },
-            trailing: HStack {
-                TrailingButtonSFSymbol("waveform.path.badge.plus") {
-                    self.addRandom()
-                }
-                TrailingButtonSFSymbol("text.badge.plus") {
-                    withAnimation {
-                        self.modal = .samples
-                        self.showModal = true }}})
+            leading: leading,
+            trailing: trailing)
         
         .sheet(isPresented: $showModal) {
             if self.modal == .samples {
@@ -87,6 +79,36 @@ struct QuickPLList: View {
             }
         }
         //        }
+    }
+    
+    @ViewBuilder
+    var leading: some View {
+        if sizeClass == .compact {
+            LeadingButtonSFSymbol("gear") {
+                self.modal = .settings
+                self.showModal = true
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var trailing: some View {
+        HStack {
+            if sizeClass == .regular {
+                TrailingButtonSFSymbol("gear") {
+                    self.modal = .settings
+                    self.showModal = true
+                }
+            }
+            TrailingButtonSFSymbol("waveform.path.badge.plus") {
+                self.addRandom()
+            }
+            TrailingButtonSFSymbol("text.badge.plus") {
+                withAnimation {
+                    self.modal = .samples
+                    self.showModal = true }
+            }
+        }
     }
     
     func addRandom() {

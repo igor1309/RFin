@@ -17,7 +17,7 @@ struct EntryList: View {
     
     var body: some View {
         List {
-            Section(header: Text(name.uppercased())) {
+            Section(header: Text(name)) {
                 ForEach(list) { entry in
                     
                     HStack(alignment: .firstTextBaseline) {
@@ -38,8 +38,7 @@ struct EntryList: View {
                 }
             }
         }
-        .listStyle(GroupedListStyle())
-            
+        .listStyle(InsetGroupedListStyle())
         .navigationBarTitle(part)
     }
 }

@@ -10,6 +10,8 @@ import SwiftPI
 
 struct ListRowWithSheet<T: View>: View {
     
+    let sizeClass: UserInterfaceSizeClass
+    
     let icon: String
     let title: String
     let subtitle: String
@@ -17,12 +19,14 @@ struct ListRowWithSheet<T: View>: View {
     let sheet: () -> T
     
     init(
+        sizeClass: UserInterfaceSizeClass? = nil,
         icon: String,
         title: String,
         subtitle: String,
         color: Color,
         @ViewBuilder sheet: @escaping () -> T
     ) {
+        self.sizeClass = sizeClass ?? .compact
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
@@ -47,7 +51,7 @@ struct ListRowWithSheet<T: View>: View {
                 }
             } icon: {
                 Image(systemName: icon)
-                    .offset(y: 3)
+                    .offset(y: subtitle.isEmpty ? 0: 3)
             }
             
             Spacer()
@@ -57,9 +61,19 @@ struct ListRowWithSheet<T: View>: View {
     }
     
     var body: some View {
-        label
-            .onTapGesture { showSheet = true }
-            .sheet(isPresented: $showSheet) { sheet() }
+        if sizeClass == .compact {
+            label
+                .onTapGesture { showSheet = true }
+                .sheet(isPresented: $showSheet) {
+                    NavigationView {
+                        sheet()
+                    }
+                }
+        } else {
+            NavigationLink(destination: sheet()) {
+                label
+            }
+        }
     }
 }
 

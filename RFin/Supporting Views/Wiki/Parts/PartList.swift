@@ -9,15 +9,6 @@
 import SwiftUI
 import SwiftPI
 
-struct PartListNav: View {
-    var body: some View {
-        NavigationView {
-            PartList()
-        }
-    }
-}
-
-
 struct PartList: View {
     @State private var isExpanded = false
     
@@ -27,17 +18,18 @@ struct PartList: View {
                 PartItem(part: part)
             }
         }
-        .listStyle(GroupedListStyle())
-            
-        .navigationBarTitle("Parts")
-            
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Parts")            
         .navigationBarItems(trailing: TrailingToggle(isOn: $isExpanded)) }
 }
 
 struct PartList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PartListNav()
+            NavigationView {
+                PartList()
+            }
+            
             PartList()
         }
         .environment(\.colorScheme, .dark)

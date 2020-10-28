@@ -153,7 +153,6 @@
 		2AD6CA192507A3760091BA28 /* BenchmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C94B2507A3750091BA28 /* BenchmarkList.swift */; };
 		2AD6CA1A2507A3760091BA28 /* BenchmarkDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C94C2507A3750091BA28 /* BenchmarkDescription.swift */; };
 		2AD6CA1B2507A3760091BA28 /* BenchmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C94D2507A3750091BA28 /* BenchmarkRow.swift */; };
-		2AD6CA1C2507A3760091BA28 /* WikiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C94E2507A3750091BA28 /* WikiView.swift */; };
 		2AD6CA1D2507A3760091BA28 /* PartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9502507A3750091BA28 /* PartList.swift */; };
 		2AD6CA1E2507A3760091BA28 /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9512507A3750091BA28 /* EntryList.swift */; };
 		2AD6CA1F2507A3760091BA28 /* PartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD6C9522507A3750091BA28 /* PartItem.swift */; };
@@ -369,7 +368,6 @@
 		2AD6C94B2507A3750091BA28 /* BenchmarkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenchmarkList.swift; sourceTree = "<group>"; };
 		2AD6C94C2507A3750091BA28 /* BenchmarkDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenchmarkDescription.swift; sourceTree = "<group>"; };
 		2AD6C94D2507A3750091BA28 /* BenchmarkRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenchmarkRow.swift; sourceTree = "<group>"; };
-		2AD6C94E2507A3750091BA28 /* WikiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiView.swift; sourceTree = "<group>"; };
 		2AD6C9502507A3750091BA28 /* PartList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartList.swift; sourceTree = "<group>"; };
 		2AD6C9512507A3750091BA28 /* EntryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
 		2AD6C9522507A3750091BA28 /* PartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartItem.swift; sourceTree = "<group>"; };
@@ -503,6 +501,7 @@
 				2AD6C87C250799140091BA28 /* RFinApp.swift */,
 				2AD6C87E250799140091BA28 /* ContentView.swift */,
 				2AD6CA5C2507B1E80091BA28 /* MainListView.swift */,
+				2AD752E525496057004A5F13 /* Lists */,
 				2AD6CA5E2507B2490091BA28 /* MainTabView.swift */,
 				2AD333212507F3AF004240AC /* Present Value */,
 				2AD333122507CD2C004240AC /* Margin Markup */,
@@ -590,7 +589,6 @@
 			children = (
 				2AD6C8D42507A3730091BA28 /* SpaceSettings.swift */,
 				2AD6C8D52507A3730091BA28 /* SpaceRow.swift */,
-				2AD6C8D62507A3730091BA28 /* SpaceList.swift */,
 				2AD6C8D92507A3730091BA28 /* SpaceDetail.swift */,
 				2AD6C8DA2507A3730091BA28 /* RentComparisonSection.swift */,
 				2AD6C8D72507A3730091BA28 /* RevenueSection.swift */,
@@ -716,7 +714,6 @@
 				2AD6C9132507A3740091BA28 /* PayDetail.swift */,
 				2AD6C9142507A3740091BA28 /* NewPosition.swift */,
 				2AD6C9152507A3740091BA28 /* PayrollSettings.swift */,
-				2AD6C9162507A3740091BA28 /* StaffVersionsView.swift */,
 				2AD6C9172507A3740091BA28 /* PayrollList.swift */,
 				2AD6C9182507A3740091BA28 /* WeeklyMonthly.swift */,
 				2AD6C9192507A3740091BA28 /* StaffVersionRow.swift */,
@@ -816,7 +813,6 @@
 		2AD6C9462507A3750091BA28 /* Wiki */ = {
 			isa = PBXGroup;
 			children = (
-				2AD6C94E2507A3750091BA28 /* WikiView.swift */,
 				2AD3331D2507D338004240AC /* WikiSections.swift */,
 				2AD6C9472507A3750091BA28 /* Benchmark */,
 				2AD6C94F2507A3750091BA28 /* Parts */,
@@ -923,7 +919,6 @@
 				2AD6C97C2507A3760091BA28 /* ROISubRowMainPart.swift */,
 				2AD6C97D2507A3760091BA28 /* ROISubRowDistributionPerMonth.swift */,
 				2AD6C97E2507A3760091BA28 /* ROIDistributionRow.swift */,
-				2AD6C97F2507A3760091BA28 /* ROIList.swift */,
 				2AD6C9802507A3760091BA28 /* FlexibleRowWith4Elements.swift */,
 				2AD6C9812507A3760091BA28 /* ROIDetailFlowsSection.swift */,
 				2AD6C9822507A3760091BA28 /* ROIDetailIRRSection.swift */,
@@ -951,11 +946,21 @@
 				2AD6C9922507A3760091BA28 /* QuickPLOptions.swift */,
 				2AD6C9932507A3760091BA28 /* QuickPLDetail.swift */,
 				2AD6C9942507A3760091BA28 /* QuickPLRow.swift */,
-				2AD6C9952507A3760091BA28 /* QuickPLList.swift */,
 				2AD6C9962507A3760091BA28 /* QuickPLSubRow.swift */,
 				2AD6C9972507A3760091BA28 /* QuickPLRowBinding.swift */,
 			);
 			path = "QuickP&L";
+			sourceTree = "<group>";
+		};
+		2AD752E525496057004A5F13 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				2AD6C9952507A3760091BA28 /* QuickPLList.swift */,
+				2AD6C97F2507A3760091BA28 /* ROIList.swift */,
+				2AD6C9162507A3740091BA28 /* StaffVersionsView.swift */,
+				2AD6C8D62507A3730091BA28 /* SpaceList.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -988,7 +993,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					2AD6C878250799140091BA28 = {
 						CreatedOnToolsVersion = 12.0;
@@ -1173,7 +1178,6 @@
 				2AD6C9F62507A3760091BA28 /* FunnelLevelsSection.swift in Sources */,
 				2AD6C9BF2507A3760091BA28 /* Port.swift in Sources */,
 				2AD6C9D82507A3760091BA28 /* RowWithAmountAndPercentage.swift in Sources */,
-				2AD6CA1C2507A3760091BA28 /* WikiView.swift in Sources */,
 				2AD6CA522507A3760091BA28 /* InvestmentCapexModal.swift in Sources */,
 				2AD6C9CA2507A3760091BA28 /* ConnectionRow.swift in Sources */,
 				2AD6CA062507A3760091BA28 /* Storehouse.swift in Sources */,
@@ -1280,6 +1284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1341,6 +1346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1398,6 +1404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"RFin/Preview Content\"";
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				ENABLE_PREVIEWS = YES;
@@ -1407,6 +1414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.photoigor.RFin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1420,6 +1428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"RFin/Preview Content\"";
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				ENABLE_PREVIEWS = YES;
@@ -1429,6 +1438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.photoigor.RFin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

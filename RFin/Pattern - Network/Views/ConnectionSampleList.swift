@@ -23,7 +23,7 @@ struct ConnectionSampleList: View {
                     Button("Add all Sample \("Connections")") { self.showAction = true }
                 }
                 
-                Section(header: Text("Sample Connections".uppercased()),
+                Section(header: Text("Sample Connections"),
                         footer: Text("Selected sample would be used to create a new entry to your Connections.")) {
                             ForEach(sampleConnections, id: \.self) { connection in
                                 ConnectionSampleRow(connection: connection)

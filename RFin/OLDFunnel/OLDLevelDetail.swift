@@ -25,20 +25,19 @@ struct OLDLevelDetail: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("".uppercased()),
-                        footer: Text("")) {
-                            TextFieldWithReset("Level Name", text: $draft.name)
-                            
-                            TextFieldWithReset("Level Description", text: $draft.description)
-                            
-                            Stepper(value: $draft.conversionRate, in: 0...1, step: 0.005) {
-                                HStack {
-                                    Text("Conversion Rate")
-                                    Spacer()
-                                    Text(draft.conversionRate.formattedPercentageWith1Decimal)
-                                        .foregroundColor(.systemOrange)
-                                }
-                            }
+                Section {
+                    TextFieldWithReset("Level Name", text: $draft.name)
+                    
+                    TextFieldWithReset("Level Description", text: $draft.description)
+                    
+                    Stepper(value: $draft.conversionRate, in: 0...1, step: 0.005) {
+                        HStack {
+                            Text("Conversion Rate")
+                            Spacer()
+                            Text(draft.conversionRate.formattedPercentageWith1Decimal)
+                                .foregroundColor(.systemOrange)
+                        }
+                    }
                 }
             }
             .navigationBarTitle(draft.name)
@@ -57,7 +56,7 @@ struct OLDLevelDetail: View {
 struct OLDLevelDetail_Previews: PreviewProvider {
     static var previews: some View {
         OLDLevelDetail(funnel: .constant(sampleFunnels[0]),
-                    level: sampleFunnels[0].levels[0])
+                       level: sampleFunnels[0].levels[0])
             .environmentObject(UserData())
             .environment(\.colorScheme, .dark)
             .environment(\.sizeCategory, .extraLarge)

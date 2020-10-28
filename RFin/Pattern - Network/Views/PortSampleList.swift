@@ -22,7 +22,7 @@ struct PortSampleList: View {
                     Button("Add all Sample \("Ports")") { self.showAction = true }
                 }
                 
-                Section(header: Text("Sample Connections".uppercased()),
+                Section(header: Text("Sample Connections"),
                         footer: Text("Selected sample would be used to create a new entry to your Connections.")) {
                             ForEach(sampleConnections[0].ports, id: \.self) { port in
                                 PortSampleRow(connection: self.$connection,

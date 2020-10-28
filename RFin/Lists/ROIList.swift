@@ -10,6 +10,8 @@ import SwiftUI
 import SwiftPI
 
 struct ROIList: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var settings: SettingsStore
     
@@ -47,18 +49,12 @@ struct ROIList: View {
             Section(footer: Text(isListEmpty ? "" : "ModelIRR").foregroundColor(.secondary).lineLimit(nil)) { EmptyView() }
         }
         .listStyle(GroupedListStyle())
-        .navigationTitle("ROIs")                
+        
+        .navigationTitle("ROIs")
+        
         .navigationBarItems(
-            leading: LeadingButtonSFSymbol("gear") {
-                self.modal = .settings
-                self.showModal = true },
-            trailing: HStack {
-                TrailingButtonSFSymbol("waveform.path.badge.plus") {
-                    self.addRandom() }
-                TrailingButtonSFSymbol("text.badge.plus") {
-                    withAnimation {
-                        self.modal = .samples
-                        self.showModal = true }}})
+            leading: leading,
+            trailing: trailing)
         
         .sheet(isPresented: $showModal) {
             if self.modal == .samples {
@@ -71,6 +67,35 @@ struct ROIList: View {
                     .environmentObject(self.userData)
                     .environmentObject(self.settings) }}
         //        }
+    }
+    
+    @ViewBuilder
+    var leading: some View {
+        if sizeClass == .compact {
+            LeadingButtonSFSymbol("gear") {
+                self.modal = .settings
+                self.showModal = true }
+        }
+    }
+    
+    @ViewBuilder
+    var trailing: some View {
+        HStack {
+            if sizeClass == .regular {
+                TrailingButtonSFSymbol("gear") {
+                    self.modal = .settings
+                    self.showModal = true
+                }
+            }
+            TrailingButtonSFSymbol("waveform.path.badge.plus") {
+                self.addRandom()
+            }
+            TrailingButtonSFSymbol("text.badge.plus") {
+                withAnimation {
+                    self.modal = .samples
+                    self.showModal = true }
+            }
+        }
     }
     
     func addRandom() {

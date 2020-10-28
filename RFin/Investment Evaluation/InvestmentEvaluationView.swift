@@ -9,25 +9,23 @@ import SwiftUI
 
 struct InvestmentEvaluationView: View {
     var body: some View {
-        NavigationView {
-            TabView {
-                List {
-                    ReturnEstimateView()
-                }
-                .listStyle(InsetGroupedListStyle())
-                
-                List {
-                    InvestmentToRevenueView()
-                }
-                
-                List {
-                    RevenueEstimateView()
-                }
+        TabView {
+            List {
+                ReturnEstimateView()
             }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-            .navigationBarTitleDisplayMode(.inline)
+            
+            List {
+                InvestmentToRevenueView()
+            }
+            
+            List {
+                RevenueEstimateView()
+            }
         }
+        .listStyle(InsetGroupedListStyle())
+        .tabViewStyle(PageTabViewStyle())
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

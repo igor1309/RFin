@@ -11,8 +11,11 @@ import SwiftPI
 
 struct BenchmarkEditor: View {
     @Environment(\.presentationMode) var presentation
+    
     @EnvironmentObject var settings: SettingsStore
+    
     var benchmark: Benchmark
+    
     @State private var draft: Benchmark
     @State private var showModal = false
     @State private var modal:  ModalType = .groups
@@ -33,12 +36,12 @@ struct BenchmarkEditor: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Benchmark".uppercased())) {
+                Section(header: Text("Benchmark")) {
                     TextField("Benchmark Name", text: $draft.name)
                     Toggle("Is Important", isOn: $draft.isImportant)
                 }
                 
-                Section(header: Text("Groups".uppercased()),
+                Section(header: Text("Groups"),
                         footer: Text("footer")) {
                             
                             Button(stringFromArray(draft.groups.map{ $0.id })) {
@@ -47,12 +50,12 @@ struct BenchmarkEditor: View {
                             }
                 }
                 
-                Section(header: Text("Target".uppercased()),
+                Section(header: Text("Target"),
                         footer: Text("footer")) {
                             Text("Target Range and Value TO BE DONE").foregroundColor(.systemRed)
                 }
                 
-                Section(header: Text("Description".uppercased())) {
+                Section(header: Text("Description")) {
                     // MARK: TODO нужен mulityline TextField
                     Text(draft.description)
                         .onTapGesture {

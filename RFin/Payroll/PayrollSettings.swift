@@ -72,7 +72,7 @@ struct PayrollSettings: View {
         NavigationView {
             Form {
                 
-                Section(header: Text("Rename".uppercased()),
+                Section(header: Text("Rename"),
                         footer: Text("Rename current Staff Version.")) {
                             Group {
                             if showRename {

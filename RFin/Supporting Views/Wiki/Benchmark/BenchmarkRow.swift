@@ -10,7 +10,9 @@ import SwiftUI
 
 struct BenchmarkRow: View {
     @EnvironmentObject var settings: SettingsStore
+    
     var benchmark: Benchmark
+    
     @State private var draft: Benchmark
     
     init(benchmark: Benchmark) {

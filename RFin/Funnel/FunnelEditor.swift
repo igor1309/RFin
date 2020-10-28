@@ -13,7 +13,7 @@ struct FunnelEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Funnel Details".uppercased()),
+            Section(header: Text("Funnel Details"),
                     footer: Text("")) {
                         
                         TextFieldWithReset("Name", text: $draft.name)
@@ -27,7 +27,7 @@ struct FunnelEditor: View {
             FunnelBottomSection(draft: $draft)
             
             if !draft.levels.isEmpty {
-                Section(header: Text("Levels".uppercased()), footer: Text("Some Footer.")) {
+                Section(header: Text("Levels"), footer: Text("Some Footer.")) {
                     ForEach(draft.levels, id: \.self) { level in
                         LevelRow(funnel: self.$draft, level: level)
                     }

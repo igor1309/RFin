@@ -11,7 +11,9 @@ import SwiftPI
 
 struct BenchmarkGroupSelector: View {
     @Environment(\.presentationMode) var presentation
+    
     @Binding var benchmark: Benchmark
+    
     @State private var groupToggles: Dictionary<BenchmarkGroup, Bool>
     
     init(benchmark: Binding<Benchmark>) {
@@ -41,39 +43,39 @@ struct BenchmarkGroupSelector: View {
         NavigationView {
             Form {
                 Section(
-                    header: Text("Select groups".uppercased()),
+                    header: Text("Select groups"),
                     footer: Text("Benchmark could belong to multiple groups.")) {
+                    
+                    ForEach(BenchmarkGroup.allCases, id: \.self) { group in
                         
-                        ForEach(BenchmarkGroup.allCases, id: \.self) { group in
-                            
-                            HStack {
-                                Text(group.id)
-                                if self.groupToggles[group] ?? false {
-                                    Spacer()
-                                    Image(systemName: "checkmark")
-                                }
+                        HStack {
+                            Text(group.id)
+                            if self.groupToggles[group] ?? false {
+                                Spacer()
+                                Image(systemName: "checkmark")
                             }
-                            .foregroundColor(self.groupToggles[group] ?? false ? .primary : .secondary)
-                            .onTapGesture {
-                                withAnimation(Animation.easeInOut(duration: 0.3)) {
-                                    let generator = UIImpactFeedbackGenerator(style: .light)
-                                    generator.impactOccurred()
-                                    if self.groupToggles[group] != nil {
-                                        if self.groupToggles[group]! {
-                                            self.groupToggles.updateValue(false, forKey: group)
-                                        } else {
-                                            self.groupToggles.updateValue(true, forKey: group)
-                                        }
+                        }
+                        .foregroundColor(self.groupToggles[group] ?? false ? .primary : .secondary)
+                        .onTapGesture {
+                            withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
+                                if self.groupToggles[group] != nil {
+                                    if self.groupToggles[group]! {
+                                        self.groupToggles.updateValue(false, forKey: group)
                                     } else {
                                         self.groupToggles.updateValue(true, forKey: group)
                                     }
+                                } else {
+                                    self.groupToggles.updateValue(true, forKey: group)
                                 }
                             }
                         }
+                    }
                 }
             }
             .navigationBarTitle(benchmark.name)
-                
+            
             .navigationBarItems(
                 leading: LeadingButtonSFSymbol("xmark") {
                     self.presentation.wrappedValue.dismiss()
@@ -83,7 +85,7 @@ struct BenchmarkGroupSelector: View {
                 trailing: TrailingButtonSFSymbol("checkmark") {
                     self.save()
                     self.presentation.wrappedValue.dismiss()
-            })
+                })
         }
     }
 }

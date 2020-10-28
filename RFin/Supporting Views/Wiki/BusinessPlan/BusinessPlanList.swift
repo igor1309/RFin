@@ -15,7 +15,7 @@ struct BusinessPlanList: View {
         List {
             ForEach(sampleBusinessPlan.sections) { section in
                 
-                Section(header: Text(section.name.uppercased()).foregroundColor(.systemPurple)) {
+                Section(header: Text(section.name).foregroundColor(.systemPurple)) {
                     
                     NavigationLink(destination: BusinessPlanDetail(name: section.name, description: section.description)) {
                         
@@ -32,8 +32,7 @@ struct BusinessPlanList: View {
                     .foregroundColor(.accentColor)
             }
         }
-        .listStyle(GroupedListStyle())
-            
+        .listStyle(InsetGroupedListStyle())            
         .navigationBarTitle("Business Plan")
     }
 }

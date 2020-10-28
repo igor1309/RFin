@@ -8,40 +8,34 @@
 import SwiftUI
 
 struct MainListView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    ListRowWithSheet(icon: "hare", title: "Quick P&L", subtitle: "Model Restaurant P&L with Scenarios.", color: .systemYellow) {
-                        NavigationView {
-                            QuickPLList()
-                        }
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "hare", title: "Quick P&L", subtitle: "Model Restaurant P&L with Scenarios.", color: .systemYellow) {
+                        QuickPLList()
                     }
-                    ListRowWithSheet(icon: "chart.bar", title: "ROI", subtitle: "Estimate Return on Investment.", color: .systemPurple) {
-                        NavigationView {
-                            ROIList()
-                        }
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "chart.bar", title: "ROI", subtitle: "Estimate Return on Investment.", color: .systemPurple) {
+                        ROIList()
                     }
-                    ListRowWithSheet(icon: "person.2", title: "Payroll", subtitle: "Create and analyse Staff versions.", color: .systemTeal) {
-                        NavigationView {
-                            StaffVersionsView()
-                        }
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "person.2", title: "Payroll", subtitle: "Create and analyse Staff versions.", color: .systemTeal) {
+                        StaffVersionsView()
                     }
-                    ListRowWithSheet(icon: "rectangle.grid.2x2", title: "Rent", subtitle: "Rent with options.", color: .systemOrange) {
-                        NavigationView {
-                            SpaceList()
-                        }
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "rectangle.grid.2x2", title: "Rent", subtitle: "Rent with options.", color: .systemOrange) {
+                        SpaceList()
                     }
                 }
                 
                 Section {
-                    ListRowWithSheet(icon: "square.stack.3d.up.fill", title: "Margin and Markup", subtitle: "", color: .systemYellow) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "square.stack.3d.up.fill", title: "Margin and Markup", subtitle: "", color: .systemYellow) {
                         MarginMarkup()
                     }
                 }
                 
                 Section {
-                    ListRowWithSheet(icon: "pesetasign.circle", title: "Present Value", subtitle: "Present Value of Discounted Constant Payments.", color: .systemGreen) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "pesetasign.circle", title: "Present Value", subtitle: "Present Value of Discounted Constant Payments.", color: .systemGreen) {
                         PresentValueView()
                             .padding(.horizontal)
                             .environmentObject(PresentValueData())
@@ -49,28 +43,28 @@ struct MainListView: View {
                 }
                 
                 Section {
-                    ListRowWithSheet(icon: "clock.arrow.circlepath", title: "Return Estimate", subtitle: "Investment Return Estimate using ratio to Monthly Revenue and Net Profit Margin.", color: .systemPurple) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "clock.arrow.circlepath", title: "Return Estimate", subtitle: "Investment Return Estimate using ratio to Monthly Revenue and Net Profit Margin.", color: .systemPurple) {
                         VStack {
                             ReturnEstimateView()
                                 .padding()
                             Spacer()
                         }
                     }
-                    ListRowWithSheet(icon: "briefcase", title: "Investment to Revenue", subtitle: "Investment to Monthly Revenue.", color: .systemPurple) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "briefcase", title: "Investment to Revenue", subtitle: "Investment to Monthly Revenue.", color: .systemPurple) {
                         VStack {
                             InvestmentToRevenueView()
                                 .padding()
                             Spacer()
                         }
                     }
-                    ListRowWithSheet(icon: "creditcard", title: "Revenue Estimate", subtitle: "Estimate using Restaurant Capacity, Turnover and Everage Cover.", color: .systemGreen) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "creditcard", title: "Revenue Estimate", subtitle: "Estimate using Restaurant Capacity, Turnover and Everage Cover.", color: .systemGreen) {
                         VStack {
                             RevenueEstimateView()
                                 .padding()
                             Spacer()
                         }
                     }
-                    ListRowWithSheet(icon: "dollarsign.circle", title: "Investment Evaluation (3 in 1)", subtitle: "", color: .secondary) {
+                    ListRowWithSheet(sizeClass: sizeClass, icon: "dollarsign.circle", title: "Investment Evaluation (3 in 1)", subtitle: "", color: .secondary) {
                         InvestmentEvaluationView()
                     }
                 }
@@ -83,7 +77,7 @@ struct MainListView: View {
                 //                    }
                 //                }
                 
-                WikiSections()
+                WikiSections(sizeClass: sizeClass ?? .compact)
             }
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Main List")

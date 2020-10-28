@@ -13,7 +13,7 @@ struct LevelEditor: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Level Details".uppercased()),
+            Section(header: Text("Level Details"),
                     footer: Text("")) {
                         
                         TextFieldWithReset("Name", text: $draft.name)

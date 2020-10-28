@@ -23,19 +23,19 @@ struct OLDFunnelList: View {
                 .font(.footnote)
             }
             
-//            Section(header: Text("Direct array: Running".uppercased())) {
+//            Section(header: Text("Direct array: Running")) {
 //                ForEach(userData.restaurant.channel.funnels, id: \.self) { funnel in
 //                    FunnelRow(funnel: funnel)
 //                }
 //            }
 //
-            Section(header: Text("Running".uppercased())) {
+            Section(header: Text("Running")) {
                 ForEach(userData.restaurant.channel.listRunning, id: \.self) { funnel in
                     OLDFunnelRow(funnel: funnel)
                 }
             }
             
-            Section(header: Text("Off".uppercased())) {
+            Section(header: Text("Off")) {
                 ForEach(userData.restaurant.channel.listOff, id: \.self) { funnel in
                     OLDFunnelRow(funnel: funnel)
                 }

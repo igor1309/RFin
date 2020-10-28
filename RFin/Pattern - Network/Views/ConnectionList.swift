@@ -29,20 +29,24 @@ struct ConnectionList: View {
             }
             
             if !connections.filter({ $0.isOn }).isEmpty {
-                Section(header: Text("On".uppercased()),
-                        footer: Text("Some comment.")) {
-                            ForEach(connections.filter{ $0.isOn }, id: \.self) { connection in
-                                ConnectionRow(connection: connection)
-                            }
+                Section(
+                    header: Text("On"),
+                    footer: Text("Some comment.")
+                ) {
+                    ForEach(connections.filter{ $0.isOn }, id: \.self) { connection in
+                        ConnectionRow(connection: connection)
+                    }
                 }
             }
             
             if !connections.filter({ !$0.isOn }).isEmpty {
-                Section(header: Text("Off".uppercased()),
-                        footer: Text("Some comment.")) {
-                            ForEach(connections.filter{ !$0.isOn }, id: \.self) { connection in
-                                ConnectionRow(connection: connection)
-                            }
+                Section(
+                    header: Text("Off"),
+                    footer: Text("Some comment.")
+                ) {
+                    ForEach(connections.filter{ !$0.isOn }, id: \.self) { connection in
+                        ConnectionRow(connection: connection)
+                    }
                 }
             }
         }
@@ -58,18 +62,18 @@ struct ConnectionList: View {
                     withAnimation {
                         self.modal = .samples
                         self.showModal = true }}})
-            .actionSheet(isPresented: $showAction) {
-                ActionSheet(title: Text("Delete all?".uppercased()),
-                            message: Text("Are you 100% sure you want to delete all \("Connectins")?\nYou can't undo this action."),
-                            buttons: [
-                                .cancel(),
-                                .destructive(Text("Yes, delete all")) {
-                                    self.deleteAll()
-                                }])}
-            .sheet(isPresented: self.$showModal) {
-                if self.modal == .samples {
-                    ConnectionSampleList()
-                        .environmentObject(self.userData) }}
+        .actionSheet(isPresented: $showAction) {
+            ActionSheet(title: Text("Delete all?".uppercased()),
+                        message: Text("Are you 100% sure you want to delete all \("Connectins")?\nYou can't undo this action."),
+                        buttons: [
+                            .cancel(),
+                            .destructive(Text("Yes, delete all")) {
+                                self.deleteAll()
+                            }])}
+        .sheet(isPresented: self.$showModal) {
+            if self.modal == .samples {
+                ConnectionSampleList()
+                    .environmentObject(self.userData) }}
     }
     
     func addRandom() {
