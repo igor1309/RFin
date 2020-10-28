@@ -34,49 +34,70 @@ struct ListRowWithSheet<T: View>: View {
     
     @ViewBuilder
     var label: some View {
-        if subtitle.isEmpty {
-            Label(title, systemImage: icon)
-        } else {
+        HStack(spacing: 0) {
             Label {
-                VStack (alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 3) {
                     Text(title)
                         .padding(.top, 3)
-                    Text(subtitle)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                    if !subtitle.isEmpty {
+                        Text(subtitle)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
                 }
             } icon: {
                 Image(systemName: icon)
                     .offset(y: 3)
             }
-        }
-    }
-    
-    var body: some View {
-        HStack(spacing: 0) {
-            label
+            
             Spacer()
         }
         .foregroundColor(color)
         .contentShape(Rectangle())
-        .onTapGesture { showSheet = true }
-        .sheet(isPresented: $showSheet) { sheet() }
+    }
+    
+    var body: some View {
+        label
+            .onTapGesture { showSheet = true }
+            .sheet(isPresented: $showSheet) { sheet() }
     }
 }
 
 struct ListRowWithSheet_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            List {
-                ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "Subtitle", color: .systemTeal) {
-                    Text("Test Sheet")
+        Group {
+            NavigationView {
+                List {
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "Subtitle", color: .systemTeal) {
+                        Text("Test Sheet")
+                    }
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "This is a longer Subtitle to test subtitle row in full lengths and extimate multiline formatting.", color: .systemOrange) {
+                        Text("Test Sheet")
+                    }
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "", color: .purple) {
+                        Text("Test Sheet")
+                    }
                 }
-                ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "", color: .systemTeal) {
-                    Text("Test Sheet")
-                }
+                .listStyle(InsetGroupedListStyle())
             }
-            .listStyle(InsetGroupedListStyle())
+            .preferredColorScheme(.dark)
+            
+            NavigationView {
+                List {
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "Subtitle", color: .systemTeal) {
+                        Text("Test Sheet")
+                    }
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "This is a longer Subtitle to test subtitle row in full lengths and extimate multiline formatting.", color: .systemOrange) {
+                        Text("Test Sheet")
+                    }
+                    ListRowWithSheet(icon: "tornado", title: "Title", subtitle: "", color: .purple) {
+                        Text("Test Sheet")
+                    }
+                }
+                .listStyle(InsetGroupedListStyle())
+            }
+            .previewDevice("iPad Pro (11-inch) (2nd generation)")
+            .preferredColorScheme(.dark)
         }
-        .preferredColorScheme(.dark)
     }
 }
