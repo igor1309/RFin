@@ -80,7 +80,7 @@ struct MainListView: View {
                 WikiSections(sizeClass: sizeClass ?? .compact)
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Main List")
+            .navigationTitle("RFin Tools")
         }
     }
 }

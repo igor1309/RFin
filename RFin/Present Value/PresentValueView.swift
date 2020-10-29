@@ -20,7 +20,7 @@ struct PresentValueView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Constant payments")
+                Text("Constant payments".uppercased())
                     .foregroundColor(.systemYellow)
                     .font(.caption)
                     .padding(.top)
@@ -30,7 +30,7 @@ struct PresentValueView: View {
                     Spacer()
                     Text(presentValueData.rccf.pv.formattedGrouped)
                 }
-                .font(.largeTitle)
+                .font(.system(size: 36, weight: .semibold, design: .rounded))
                 .foregroundColor(.systemYellow)
             }
             
@@ -39,6 +39,7 @@ struct PresentValueView: View {
             
             Text(presentValueData.rccf.explanation(presentValueData.multiplier))
                 .foregroundColor(.secondary)
+                .font(.subheadline)
             
             if sizeClass == .compact {
                 HStack {
@@ -54,6 +55,7 @@ struct PresentValueView: View {
                         Capsule()
                             .stroke(Color.blue, lineWidth: 1)
                     )
+                    .padding(.top)
                     .padding(.top)
                     .sheet(isPresented: $showModal) {
                         NavigationView {
@@ -87,6 +89,10 @@ struct PresentValueView: View {
 
 struct PresentValueView_Previews: PreviewProvider {
     static var previews: some View {
-        PresentValueView()
+        NavigationView {
+            PresentValueView()
+        }
+        .environmentObject(PresentValueData())
+        .preferredColorScheme(.dark)
     }
 }

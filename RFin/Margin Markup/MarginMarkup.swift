@@ -176,8 +176,14 @@ struct MarginMarkup: View {
                         .foregroundColor(ratio.markup == value.markup ? .systemTeal : .secondary)
                         .font(.footnote)
                         .onTapGesture {
-                            //  MARK: - FINISH THIS ADD HAPTIC
-                            ratio.markup = value.markup
+                            if hapticsAvailable {
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
+                            }
+                            
+                            withAnimation {
+                                ratio.markup = value.markup
+                            }
                         }
                     }
                 }

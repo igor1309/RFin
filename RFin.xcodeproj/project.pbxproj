@@ -221,6 +221,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A6BA3632549DE61007D63DF /* Ratio.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Ratio.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2AD333102507CD1D004240AC /* InvestmentEvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentEvaluationView.swift; sourceTree = "<group>"; };
 		2AD333132507CDCC004240AC /* ReturnEstimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnEstimateView.swift; sourceTree = "<group>"; };
 		2AD333142507CDCC004240AC /* RevenueEstimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueEstimateView.swift; sourceTree = "<group>"; };
@@ -447,6 +448,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6BA3602549DDFB007D63DF /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				2A6BA3632549DE61007D63DF /* Ratio.playground */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
 		2AD3330F2507CD02004240AC /* Investment Evaluation */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +534,7 @@
 				2AD6C9462507A3750091BA28 /* Wiki */,
 				2AD6C88E25079CA00091BA28 /* Supporting Views */,
 				2AD6C880250799150091BA28 /* Assets.xcassets */,
+				2A6BA3602549DDFB007D63DF /* Playgrounds */,
 				2AD6C885250799150091BA28 /* Info.plist */,
 				2AD6C882250799150091BA28 /* Preview Content */,
 			);
@@ -1404,7 +1414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"RFin/Preview Content\"";
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				ENABLE_PREVIEWS = YES;
@@ -1414,7 +1424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.photoigor.RFin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1428,7 +1438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"RFin/Preview Content\"";
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				ENABLE_PREVIEWS = YES;
@@ -1438,7 +1448,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.06;
 				PRODUCT_BUNDLE_IDENTIFIER = com.photoigor.RFin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

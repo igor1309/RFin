@@ -68,9 +68,11 @@ struct PresentValueDetailView: View {
     }
     
     private func compactHeader() -> some View {
-        Section(header: Text("Present Value"),
-                footer: Text(presentValueData.rccf.explanation() + " ").foregroundColor(.primary)
-                    + Text(presentValueData.rccf.explanation(presentValueData.multiplier))) {
+        Section(
+            //header: Text("Present Value"),
+            footer: Text(presentValueData.rccf.explanation() + " ").foregroundColor(.primary)
+                + Text(presentValueData.rccf.explanation(presentValueData.multiplier))
+        ) {
             HStack {
                 Text("Payment PV")
                 Spacer()
