@@ -28,7 +28,6 @@ struct QuickPLList: View {
     var isListEmpty: Bool { userData.quickie.quickPLs.isEmpty }
     
     var body: some View {
-        //        NavigationView {
         List {
             if isListEmpty {
                 Group {
@@ -58,13 +57,8 @@ struct QuickPLList: View {
             Section(footer: Text(isListEmpty ? "" : "ice").foregroundColor(.secondary)) { EmptyView() }
         }
         .listStyle(GroupedListStyle())
-        
         .navigationBarTitle("Quick P&Ls")
-        
-        .navigationBarItems(
-            leading: leading,
-            trailing: trailing)
-        
+        .navigationBarItems(leading: leading, trailing: trailing)
         .sheet(isPresented: $showModal) {
             if self.modal == .samples {
                 QuickPLOptions()
@@ -78,7 +72,6 @@ struct QuickPLList: View {
                     .environmentObject(self.userData)
             }
         }
-        //        }
     }
     
     @ViewBuilder

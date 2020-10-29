@@ -12,10 +12,8 @@ import CoreHaptics
 
 struct StaffVersionsView: View {
     @EnvironmentObject var userData: UserData
-    var hapticsAvailable: Bool { CHHapticEngine.capabilitiesForHardware().supportsHaptics }
     
     var body: some View {
-        //        NavigationView {
         List {
             Text("TBD: sort by date modified").font(.subheadline).foregroundColor(.systemRed)
             
@@ -34,8 +32,8 @@ struct StaffVersionsView: View {
                 TrailingButtonSFSymbol("plus") {
                     self.addEmpty()
                 }
-            })
-        //        }
+            }
+        )
     }
     
     func addEmpty() {

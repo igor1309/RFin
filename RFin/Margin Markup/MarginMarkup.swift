@@ -37,7 +37,7 @@ struct MarginMarkup: View {
     
     private let values1: [Double] = [20, 25, 33, 50, 75, 80].map { $0/100 }
     private let values2: [Double] = [100, 125, 150, 175, 200, 250].map { $0/100 }
-    private let values3: [Double] = [300, 350, 400, 450, 500].map { $0/100 }
+    private let values3: [Double] = [300, 350, 400, 450, 500, 550].map { $0/100 }
     private var values: [Double] { values1 + values2 + values3 }
     
     
@@ -108,13 +108,9 @@ struct MarginMarkup: View {
                 }
             }
                         
-            Divider().padding(.vertical)
+            Divider().padding(.top)
             
             markupMarginTable()
-            
-            if sizeClass == .regular {
-                Spacer()
-            }
         }
         .padding(.horizontal)
         .padding(.top)
@@ -189,6 +185,7 @@ struct MarginMarkup: View {
                 }
             }
         }
+        .padding(.bottom)
     }
     
     private func segmentedPicker(_ value: Binding<Double>, values: [Double]) -> some View {

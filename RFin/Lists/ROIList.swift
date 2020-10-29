@@ -21,7 +21,6 @@ struct ROIList: View {
     var isListEmpty: Bool { userData.roiCollection.otbivki.isEmpty }
     
     var body: some View {
-        //        NavigationView {
         List {
             if isListEmpty {
                 Group {
@@ -46,27 +45,29 @@ struct ROIList: View {
                 .onMove(perform: move)
             }
             
-            Section(footer: Text(isListEmpty ? "" : "ModelIRR").foregroundColor(.secondary).lineLimit(nil)) { EmptyView() }
+            Section(
+                footer: Text(isListEmpty ? "" : "ModelIRR").foregroundColor(.secondary).lineLimit(nil)
+            ) {
+                EmptyView()
+            }
         }
         .listStyle(GroupedListStyle())
-        
         .navigationTitle("ROIs")
-        
-        .navigationBarItems(
-            leading: leading,
-            trailing: trailing)
-        
+        .navigationBarItems(leading: leading, trailing: trailing)
         .sheet(isPresented: $showModal) {
             if self.modal == .samples {
                 ROIOptions()
                     .environmentObject(self.settings)
-                    .environmentObject(self.userData) }
+                    .environmentObject(self.userData)
+            }
             
             if self.modal == .settings {
                 ROISettings()
                     .environmentObject(self.userData)
-                    .environmentObject(self.settings) }}
-        //        }
+                    .environmentObject(self.settings)
+                
+            }
+        }
     }
     
     @ViewBuilder
@@ -74,7 +75,8 @@ struct ROIList: View {
         if sizeClass == .compact {
             LeadingButtonSFSymbol("gear") {
                 self.modal = .settings
-                self.showModal = true }
+                self.showModal = true
+            }
         }
     }
     
@@ -93,7 +95,8 @@ struct ROIList: View {
             TrailingButtonSFSymbol("text.badge.plus") {
                 withAnimation {
                     self.modal = .samples
-                    self.showModal = true }
+                    self.showModal = true
+                }
             }
         }
     }
