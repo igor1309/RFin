@@ -35,14 +35,28 @@ struct MarginMarkup: View {
     
     @State var ratio = Ratio(markup: 3.00)
     
-    private let values1: [Double] = [20, 25, 50, 75, 100, 150].map { $0/100 }
-    private let values2: [Double] = [200, 250, 300, 350, 400, 500].map { $0/100 }
-    private var values: [Double] { values1 + values2 }
+    private let values1: [Double] = [20, 25, 33, 50, 75, 80].map { $0/100 }
+    private let values2: [Double] = [100, 125, 150, 175, 200, 250].map { $0/100 }
+    private let values3: [Double] = [300, 350, 400, 450, 500].map { $0/100 }
+    private var values: [Double] { values1 + values2 + values3 }
     
     
     struct Pair: Hashable {
         var markup: Double
         var margin: Double
+        
+        init(markup: Double, margin: Double) {
+            self.markup = markup
+            self.margin = margin
+        }
+        
+        init?(markup: Double?, margin: Double) {
+            guard let markup = markup else {
+                return nil
+            }
+            
+            self.init(markup: markup, margin: margin)
+        }
     }
     
     private var tableValues: [Pair] {
@@ -66,45 +80,42 @@ struct MarginMarkup: View {
             
             Divider().padding(.vertical)
             
-            Group {
-                
-                if sizeClass == .compact {
-                    markupStepper()
-                    markupSlider()
-                    picker(values1)
-                    picker(values2)
-                } else {
-                    markupStepperSlider()
-                    picker(values)
-                }
-                
-            }
-            
-            Divider().padding(.vertical)
-            
-            marginStepperSlider()
-            
-            if sizeClass == .regular {
-                VStack(spacing: 3) {
-                    ForEach(tableValues, id: \.self) { value in
-                        HStack {
-                            Spacer()
-                            Text("\(value.markup * 100, specifier: "%.f%%")")
-                            Spacer()
-                            Text("\(value.margin * 100, specifier: "%.f%%")")
-                            Spacer()
+            ScrollView(showsIndicators: false) {
+                Group {
+                    
+                    if sizeClass == .compact {
+                        compactInputView("Markup", value: $ratio.markup, in: 0...50, step: 0.01)
+                        picker(values1)
+                        picker(values2)
+                        picker(values3)
+                        
+                        Divider().padding(.vertical)
+                        
+                        compactInputView("Margin", value: $ratio.margin, in: 0...0.9999999, step: 0.005)
+                    } else {
+                        VStack(spacing: 0) {
+                            inputView("Markup", value: $ratio.markup, in: 0...50, step: 0.01, values: values)
+                            
+                            Divider()
+                            
+                            inputView("Margin", value: $ratio.margin, in: 0...0.9999999, step: 0.005, values: values.filter { $0 < 1 })
                         }
-                        .font(.subheadline)
                     }
                 }
             }
+                        
+            Divider().padding(.vertical)
             
-            Spacer()
+            markupMarginTable()
+            
+            if sizeClass == .regular {
+                Spacer()
+            }
         }
         .padding(.horizontal)
         .padding(.top)
         .navigationTitle("Margin & Markup")
-        .navigationBarItems(trailing: trailing)
+        .navigationBarItems(trailing: trailingButton)
     }
     
     private func item(_ item: Double, title: String) -> some View {
@@ -118,8 +129,55 @@ struct MarginMarkup: View {
         }
     }
     
+    private func compactInputView(_ title: String, value: Binding<Double>, in range: ClosedRange<Double>, step: Double) -> some View {
+        VStack {
+            Stepper(value: value, in: range, step: step) {
+                Text("\(title): \(value.wrappedValue * 100, specifier: "%.1f%%")")
+                    .foregroundColor(.systemOrange)
+            }
+            Slider(value: value, in: range, step: step)
+                .accentColor(.systemOrange)
+        }
+    }
+    
+    private func inputView(_ title: String, value: Binding<Double>, in range: ClosedRange<Double>, step: Double, values: [Double]) -> some View {
+        HStack {
+            compactInputView(title, value: value, in: range, step: step)
+            
+            Spacer(minLength: 32)
+            
+            Picker("Markup", selection: value) {
+                ForEach(values, id: \.self) { value in
+                    Text("\(value * 100, specifier: "%.f%%")").tag(value)
+                }
+            }
+        }
+    }
+    
+    private func markupMarginTable() -> some View {
+        HStack(spacing: 16) {
+            VStack(alignment: .leading ,spacing: 4) {
+                Text("Markup")
+                Text("Margin")
+            }
+            .font(.footnote)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 18) {
+                    ForEach(tableValues, id: \.self) { value in
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text("\(value.markup * 100, specifier: "%.f%%")")
+                            Text("\(value.margin * 100, specifier: "%.f%%")")
+                        }
+                        .font(.footnote)
+                    }
+                }
+            }
+        }
+    }
+    
     private func picker(_ values: [Double]) -> some View {
-        Picker("Markup", selection: $ratio.markup) {
+        Picker("", selection: $ratio.markup) {
             ForEach(values, id: \.self) { value in
                 Text("\(value * 100, specifier: "%.f%%")").tag(value)
             }
@@ -127,55 +185,8 @@ struct MarginMarkup: View {
         .pickerStyle(SegmentedPickerStyle())
     }
     
-    private func markupStepper() -> some View {
-        Stepper(value: $ratio.markup, in: 0...10, step: 0.01) {
-            Text("Markup: \(ratio.markup * 100, specifier: "%.1f%%")")
-                .foregroundColor(.systemOrange)
-        }
-    }
-    
-    private func markupStepperSlider() -> some View {
-        Stepper(value: $ratio.markup, in: 0...10, step: 0.01) {
-            Text("Markup: \(ratio.markup * 100, specifier: "%.1f%%")")
-                .foregroundColor(.systemOrange)
-            markupSlider()
-        }
-    }
-    
-    private func markupSlider() -> some View {
-        Slider(value: $ratio.markup, in: 0...10, step: 0.01)
-            .accentColor(.systemOrange)
-    }
-    
-    private func marginSlider() -> some View {
-        Slider(value: $ratio.margin, in: 0...0.9999999, step: 0.005)
-            .accentColor(.systemOrange)
-    }
-    
     @ViewBuilder
-    private func marginStepperSlider() -> some View {
-        if sizeClass == .compact {
-            HStack {
-                Text("Margin: \(ratio.margin * 100, specifier: "%.1f%%")")
-                    .foregroundColor(.systemOrange)
-                Spacer()
-                Text("Cost: \((1 - ratio.margin) * 100, specifier: "%.1f%%")")
-                    .foregroundColor(.secondary)
-            }
-            
-            marginSlider()
-                .padding(.bottom)
-        } else {
-            Stepper(value: $ratio.margin, in: 0...10, step: 0.01) {
-                Text("Margin: \(ratio.margin * 100, specifier: "%.1f%%")")
-                    .foregroundColor(.systemOrange)
-                marginSlider()
-            }
-        }
-    }
-    
-    @ViewBuilder
-    var trailing: some View {
+    var trailingButton: some View {
         if sizeClass == .compact {
             TrailingButton("Done") {
                 self.presentation.wrappedValue.dismiss()
