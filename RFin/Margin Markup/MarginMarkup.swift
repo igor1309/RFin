@@ -65,6 +65,8 @@ struct MarginMarkup: View {
         }
     }
     
+    @State private var scrollTarget: Int?
+    
     var body: some View {
         VStack(spacing: 16) {
             
@@ -84,7 +86,7 @@ struct MarginMarkup: View {
                 Group {
                     
                     if sizeClass == .compact {
-                        compactInputView("Markup", value: $ratio.markup, in: 0...50, step: 0.01)
+                        compactInputView("Markup", value: $ratio.markup, in: 0...10, step: 0.01)
                         
                         segmentedPicker($ratio.markup, values: values1)
                         segmentedPicker($ratio.markup, values: values2)
@@ -94,7 +96,7 @@ struct MarginMarkup: View {
                         
                         compactInputView("Margin", value: $ratio.margin, in: 0...0.9999999, step: 0.005)
                         
-                        //  MARK: - calculated values are not exactly equal - selection is not selected
+                        /// calculated values are not exactly equal - selection is not selected sometimes due to rounding
                         segmentedPicker($ratio.margin, values: values1)
                     } else {
                         VStack(spacing: 0) {
@@ -105,6 +107,9 @@ struct MarginMarkup: View {
                             inputView("Margin", value: $ratio.margin, in: 0...0.9999999, step: 0.005, values: values.filter { $0 < 1 })
                         }
                     }
+                }
+                .onChange(of: ratio.markup) { markup in
+                    scrollTarget = tableValues.map { $0.markup }.firstIndex(of: ratio.markup)
                 }
             }
                         
@@ -163,22 +168,34 @@ struct MarginMarkup: View {
             .font(.footnote)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 18) {
-                    ForEach(tableValues, id: \.self) { value in
-                        VStack(alignment: .trailing, spacing: 4) {
-                            Text("\(value.markup * 100, specifier: "%.f%%")")
-                            Text("\(value.margin * 100, specifier: "%.f%%")")
-                        }
-                        .foregroundColor(ratio.markup == value.markup ? .systemTeal : .secondary)
-                        .font(.footnote)
-                        .onTapGesture {
-                            if hapticsAvailable {
-                                let generator = UIImpactFeedbackGenerator(style: .light)
-                                generator.impactOccurred()
+                ScrollViewReader { proxy in
+                    HStack(spacing: 18) {
+                        ForEach(tableValues.indices) { index in
+                            VStack(alignment: .trailing, spacing: 4) {
+                                Text("\(tableValues[index].markup * 100, specifier: "%.f%%")")
+                                Text("\(tableValues[index].margin * 100, specifier: "%.f%%")")
                             }
-                            
-                            withAnimation {
-                                ratio.markup = value.markup
+                            .foregroundColor(ratio.markup == tableValues[index].markup ? .systemTeal : .secondary)
+                            .font(.footnote)
+                            .id(index)
+                            .onChange(of: scrollTarget) { target in
+                                if let target = target {
+                                    scrollTarget = nil
+                                    
+                                    withAnimation {
+                                        proxy.scrollTo(target, anchor: .center)
+                                    }
+                                }
+                            }
+                            .onTapGesture {
+                                if hapticsAvailable {
+                                    let generator = UIImpactFeedbackGenerator(style: .light)
+                                    generator.impactOccurred()
+                                }
+                                
+                                withAnimation {
+                                    ratio.markup = tableValues[index].markup
+                                }
                             }
                         }
                     }

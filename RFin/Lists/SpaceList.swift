@@ -20,7 +20,6 @@ struct SpaceList: View {
     var isListEmpty: Bool { userData.restaurant.place.isListEmpty }
     
     var body: some View {
-        //        NavigationView {
         List {
             if isListEmpty {
                 Group {
@@ -43,13 +42,8 @@ struct SpaceList: View {
             }
         }
         .listStyle(GroupedListStyle())
-        
         .navigationTitle("Spaces")
-        
-        .navigationBarItems(
-            leading: leading,
-            trailing: trailing
-        )
+        .navigationBarItems(leading: leading, trailing: trailing)
         .sheet(isPresented: $showModal) {
             if modal == .settings {
                 SpaceSettings()
@@ -126,6 +120,5 @@ struct SpaceList_Previews: PreviewProvider {
         }
         .environmentObject(UserData())
         .environment(\.colorScheme, .dark)
-        
     }
 }
