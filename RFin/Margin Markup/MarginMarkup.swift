@@ -85,13 +85,17 @@ struct MarginMarkup: View {
                     
                     if sizeClass == .compact {
                         compactInputView("Markup", value: $ratio.markup, in: 0...50, step: 0.01)
-                        picker(values1)
-                        picker(values2)
-                        picker(values3)
+                        
+                        segmentedPicker($ratio.markup, values: values1)
+                        segmentedPicker($ratio.markup, values: values2)
+                        segmentedPicker($ratio.markup, values: values3)
                         
                         Divider().padding(.vertical)
                         
                         compactInputView("Margin", value: $ratio.margin, in: 0...0.9999999, step: 0.005)
+                        
+                        //  MARK: - calculated values are not exactly equal - selection is not selected
+                        segmentedPicker($ratio.margin, values: values1)
                     } else {
                         VStack(spacing: 0) {
                             inputView("Markup", value: $ratio.markup, in: 0...50, step: 0.01, values: values)
@@ -115,7 +119,7 @@ struct MarginMarkup: View {
         .padding(.horizontal)
         .padding(.top)
         .navigationTitle("Margin & Markup")
-        .navigationBarItems(trailing: trailingButton)
+        .navigationBarItems(trailing: doneButton)
     }
     
     private func item(_ item: Double, title: String) -> some View {
@@ -169,15 +173,20 @@ struct MarginMarkup: View {
                             Text("\(value.markup * 100, specifier: "%.f%%")")
                             Text("\(value.margin * 100, specifier: "%.f%%")")
                         }
+                        .foregroundColor(ratio.markup == value.markup ? .systemTeal : .secondary)
                         .font(.footnote)
+                        .onTapGesture {
+                            //  MARK: - FINISH THIS ADD HAPTIC
+                            ratio.markup = value.markup
+                        }
                     }
                 }
             }
         }
     }
     
-    private func picker(_ values: [Double]) -> some View {
-        Picker("", selection: $ratio.markup) {
+    private func segmentedPicker(_ value: Binding<Double>, values: [Double]) -> some View {
+        Picker("", selection: value) {
             ForEach(values, id: \.self) { value in
                 Text("\(value * 100, specifier: "%.f%%")").tag(value)
             }
@@ -186,7 +195,7 @@ struct MarginMarkup: View {
     }
     
     @ViewBuilder
-    var trailingButton: some View {
+    var doneButton: some View {
         if sizeClass == .compact {
             TrailingButton("Done") {
                 self.presentation.wrappedValue.dismiss()
