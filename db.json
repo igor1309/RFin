@@ -1,0 +1,22 @@
+{
+   "pagination": {
+       "limit": 100,
+       "offset": 0,
+       "count": 100,
+       "total": 6471
+   },
+   "data": [
+      {
+         "airport_name": "Anaa",
+      },
+      {
+         "airport_name": "Vnukovo",
+      },
+      {
+         "airport_name": "Zhukovo",
+      },
+      {
+         "airport_name": "Domodedovo",
+      }
+   ]
+}
